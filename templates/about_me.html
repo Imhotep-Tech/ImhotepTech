@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Karim Bassem</title>
+    {% include 'css.html' %}
+
+<body style="background-color: grey;">
+    {% include 'nav.html' %}
+    <div class="p-5 text-center">
+        <h1>Imhotep Tech</h1>
+        <p>Win in your mind and you will win on your reality</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Karim Bassem Joseph</h2>
+                <img src="{{ url_for('static', filename='karim.png') }}" height="200" width="auto" alt="Karim"
+                    style="border-radius: 50%;     object-fit: contain;">
+                <p>The founder of Imhotep Tech.<br>
+                    A student at NU (Nile University) in Egypt, Loves programming so much and made 4 programs for a
+                    clinics. Knows Flask, Python, HTML/CSS, C, Bootstrap, Sqlite3.</p>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5 p-4 bg-dark text-white text-center">
+        <p>© 2023 Copyright: Imhotep Tech</p>
+    </div>
+</body>
