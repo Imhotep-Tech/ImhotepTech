@@ -1,3 +1,8 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
 .navbar {
     background-color: #202761;
     overflow: hidden;
@@ -18,4 +23,34 @@
     background-color: #ddd;
     color: black;
     border-radius: 1rem;
+}
+
+.hero {
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.container {
+    padding: 60px 15px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.footer {
+    padding: 20px 0;
 }
