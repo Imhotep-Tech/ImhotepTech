@@ -1,10 +1,11 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #2e3b4b;
     font-family: 'Arial', sans-serif;
+    color: white;
 }
 
 .navbar {
-    background-color: #202761;
+    background-color: #2e3b4b ;
     overflow: hidden;
     border-radius: 1rem;
 }
@@ -21,7 +22,7 @@ body {
 
 .navbar a:hover {
     background-color: #ddd;
-    color: black;
+    color: #2e3b4b;
     border-radius: 1rem;
 }
 
@@ -53,6 +54,7 @@ body {
 
 .footer {
     padding: 20px 0;
+    background-color: #2e3b4b;
 }
 
 .footer-icons {
