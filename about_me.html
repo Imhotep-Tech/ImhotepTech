@@ -2,27 +2,49 @@
 <html lang="en">
 
 <head>
-    <title>Imhotep Tech - About Karim Bassem Joseph</title>
+    <title>Imhotep Tech - Custom Software Development & Web Applications</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets and Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='it.ico') }}">
-    <meta name="description" content="Meet Karim Bassem Joseph, founder of Imhotep Tech, a talented software developer and student at Nile University in Egypt.">
-    <meta name="keywords" content="Karim Bassem Joseph, Nile University, Imhotep Tech, software developer Egypt, Flask developer, Python, HTML/CSS">
-    <meta property="og:title" content="Imhotep Tech - Meet Karim Bassem Joseph">
-    <meta property="og:description" content="Karim Bassem Joseph is a software developer and founder of Imhotep Tech. Learn more about his journey and expertise.">
-    <meta property="og:image" content="{{ url_for('static', filename='karim.png') }}">
+    <link rel="stylesheet" href="static/app.css"> <!-- Adjusted to static file -->
+    <link rel="shortcut icon" href="static/it.ico"> <!-- Adjusted to static file -->
+
+    <!-- SEO and Meta -->
+    <meta name="description" content="Imhotep Tech - Custom software and web application development services. Contact us to streamline your business.">
+    <meta name="keywords" content="custom software development, web application, Egypt, Imhotep Tech, small business solutions, clinic software, currency converter, financial manager app">
+    <meta property="og:title" content="Imhotep Tech - Custom Software Development & Web Applications">
+    <meta property="og:description" content="We develop custom software & web applications to streamline your business operations. Contact us now!">
+    <meta property="og:image" content="https://imhoteptech.vercel.app/static/it.png">
     <meta property="og:url" content="https://imhoteptech.vercel.app">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://imhoteptech.vercel.app/about-karim" />
+    <link rel="canonical" href="https://imhoteptech.vercel.app/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Imhotep Tech">
 </head>
 
 <body>
     <!-- Navbar -->
-    {% include 'nav.html' %}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Imhotep Tech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/libraries" class="nav-link">Imhotep Libraries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about_me" class="nav-link">The Founder</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <div class="p-5 text-center bg-light" style="color: #2e3b4b;">
@@ -35,7 +57,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 text-center">
                 <h2>About Karim</h2>
-                <img src="{{ url_for('static', filename='karim.png') }}" class="img-fluid rounded-circle mb-3" alt="Karim Bassem Joseph, founder of Imhotep Tech" width="200" height="200">
+                <img src="static/karim.png" class="img-fluid rounded-circle mb-3" alt="Karim Bassem Joseph, founder of Imhotep Tech" width="200" height="200">
                 <p>Karim Bassem Joseph is a passionate software developer and a student at Nile University (NU) in Egypt. With expertise in modern web development, he has built applications that streamline processes for businesses of all sizes.</p>
 
                 <!-- Expanded Bio -->
@@ -75,7 +97,29 @@
     </div>
 
     <!-- Footer -->
-    {% include 'footer.html' %}
+    <footer class="mt-5 p-4 bg-dark text-white text-center">
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; 2023-2024 Imhotep Tech. All rights reserved.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-end align-items-center">
+                    <p class="mb-0">Contact us:</p>
+                    <a href="mailto:imhoteptech@outlook.com" class="footer-icon">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <a href="https://www.instagram.com/imhotep_tech?igsh=YXV0Y24xZnNveDQ5" target="_blank" class="footer-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09" target="_blank" class="footer-icon">
+                        <i class="fab fa-twitter"></i> 
+                    </a>
+                    <a href="https://github.com/Imhotep-Tech" target="_blank" class="footer-icon">
+                        <i class="fab fa-github"></i> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>
