@@ -159,7 +159,6 @@ h2 {
     color: #fff; /* Ensure text remains white */
 }
 
-
 /* For mobile responsiveness */
 @media (max-width: 768px) {
     .hero h1 {
