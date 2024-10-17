@@ -11,6 +11,10 @@ def index():
 def about_me():
     return render_template("about_me.html")
 
+@app.route("/libraries", methods=["GET"])
+def libraries():
+    return render_template("libraries.html")
+
 @app.route('/sitemap.xml')
 def sitemap():
     pages = []

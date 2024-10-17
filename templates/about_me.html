@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Imhotep Tech - Custom Software Development & Web Applications</title>
+    <title>Imhotep Tech - About Karim Bassem Joseph</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,33 +10,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='it.ico') }}">
-    <meta name="google-site-verification" content="5VWhaKmsV5Wzrdko3_Si5vVnmNsMDttsJFA04mFxrsE" />
-    <meta name="description" content="Imhotep Tech - We develop custom software & web applications to streamline your business operations. Contact us to discuss your project!">
-    <meta name="keywords" content="Tech, Imhotep Tech, imhotep tech, imhotep, tech, small software company, custom software development, web application development">
-    <meta property="og:title" content="Imhotep Tech - Custom Software Development & Web Applications">
-    <meta property="og:description" content="We develop custom software & web applications to streamline your business operations. Contact us to discuss your project!">
-    <meta property="og:image" content="">
+    <meta name="description" content="Meet Karim Bassem Joseph, founder of Imhotep Tech, a talented software developer and student at Nile University in Egypt.">
+    <meta name="keywords" content="Karim Bassem Joseph, Nile University, Imhotep Tech, software developer Egypt, Flask developer, Python, HTML/CSS">
+    <meta property="og:title" content="Imhotep Tech - Meet Karim Bassem Joseph">
+    <meta property="og:description" content="Karim Bassem Joseph is a software developer and founder of Imhotep Tech. Learn more about his journey and expertise.">
+    <meta property="og:image" content="{{ url_for('static', filename='karim.png') }}">
     <meta property="og:url" content="https://imhoteptech.vercel.app">
-    <meta name="twitter:card" content="">
-    <link rel="canonical" href="https://imhoteptech.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://imhoteptech.vercel.app/about-karim" />
 </head>
 
 <body>
+    <!-- Navbar -->
     {% include 'nav.html' %}
+
+    <!-- Hero Section -->
     <div class="p-5 text-center bg-light" style="color: #2e3b4b;">
         <h1>Karim Bassem Joseph</h1>
         <p>The Founder of Imhotep Tech</p>
     </div>
 
+    <!-- About Section -->
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-4 text-center">
+            <div class="col-md-8 text-center">
                 <h2>About Karim</h2>
-                <img src="{{ url_for('static', filename='karim.png') }}" class="img-fluid rounded-circle mb-3" alt="Karim">
-                <p>Karim Bassem Joseph is a student at Nile University (NU) in Egypt. Passionate about programming. Proficient in Flask, Python, HTML/CSS, C, C++, Bootstrap, SQLite3, and postgresql.</p>
+                <img src="{{ url_for('static', filename='karim.png') }}" class="img-fluid rounded-circle mb-3" alt="Karim Bassem Joseph, founder of Imhotep Tech" width="200" height="200">
+                <p>Karim Bassem Joseph is a passionate software developer and a student at Nile University (NU) in Egypt. With expertise in modern web development, he has built applications that streamline processes for businesses of all sizes.</p>
+
+                <!-- Expanded Bio -->
+                <h3>Background & Expertise</h3>
+                <p>Karim’s journey into tech began with a fascination for how technology could solve real-world problems. He has honed his skills in various programming languages and frameworks, including:</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check-circle"></i> Flask and Python for backend development</li>
+                    <li><i class="fas fa-check-circle"></i> HTML, CSS, and Bootstrap for responsive front-end design</li>
+                    <li><i class="fas fa-check-circle"></i> Experience with databases such as SQLite3 and PostgreSQL</li>
+                    <li><i class="fas fa-check-circle"></i> Knowledge of C, C++ for low-level programming</li>
+                </ul>
+                
+                <!-- Skills Section with Progress Bars -->
+                <h3>Skills & Proficiency</h3>
+                <p>Here’s a breakdown of Karim’s technical expertise:</p>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 90%">Flask (90%)</div>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%">Python (80%)</div>
+                </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%">HTML/CSS (75%)</div>
+                </div>
+
+                <!-- Personal Story or Vision -->
+                <h3>Karim’s Vision for Imhotep Tech</h3>
+                <p>Karim founded Imhotep Tech with the vision of building custom software solutions that empower small businesses to thrive in a competitive digital landscape. By leveraging his expertise in development and his entrepreneurial spirit, Karim aims to make technology more accessible and effective for companies of all sizes.</p>
+                
+                <!-- Social Media & Contact -->
+                <h3>Connect with Karim</h3>
+                <a href="https://www.linkedin.com/in/karim-bassem-6a89002a8/" class="btn btn-outline-primary mt-2" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/kbassem10" class="btn btn-outline-dark mt-2" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://x.com/kbassem10" class="btn btn-outline-primary mt-2" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
 </body>
-{% include 'footer.html' %}
+
 </html>
