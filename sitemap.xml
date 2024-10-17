@@ -12,4 +12,17 @@
         <loc>https://imhotep-tech.github.io/ImhotepTech/about_me.html</loc>
         <lastmod>2024-10-17</lastmod>
     </url>
+
+    <url>
+        <loc>https://imhoteptech.vercel.app/</loc>
+        <lastmod>2024-10-17</lastmod>
+    </url>
+    <url>
+        <loc>https://imhoteptech.vercel.app/libraries.html</loc>
+        <lastmod>2024-10-17</lastmod>
+    </url>
+        <url>
+        <loc>https://imhoteptech.vercel.app/about_me.html</loc>
+        <lastmod>2024-10-17</lastmod>
+    </url>
 </urlset>
