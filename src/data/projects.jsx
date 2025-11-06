@@ -229,29 +229,6 @@ const baseProjects = [
       ]
     },
     {
-      title: "Imhotep Clinic",
-      url: "https://www.fiverr.com/kbassem/a-webapp-for-a-small-clinic",
-      date: "DEC 31, 2023",
-      description: "Are you overwhelmed with clinic paperwork? Imhotep Clinic, built with Flask, is a custom web app to help clinics manage patient records, appointments, and doctor information efficiently. Features include patient management, doctor pricing control, and secure data handling with role-based access.",
-      image: "/imhotepclinic.png",
-      imageAlt: "Imhotep Clinic Web App",
-      priority: "medium",
-      tags: [
-        { name: "Flask", color: "bg-red-900/50" },
-        { name: "Patient Management", color: "bg-green-900/50" },
-        { name: "Appointments", color: "bg-blue-900/50" },
-        { name: "Role-based Access", color: "bg-purple-900/50" }
-      ],
-      buttons: [
-        {
-          text: "Learn More",
-          url: "https://www.fiverr.com/kbassem/a-webapp-for-a-small-clinic",
-          style: "bg-accent hover:bg-accent/80",
-          icon: "fas fa-info-circle"
-        }
-      ]
-    },
-    {
       title: "The First Program",
       url: "https://kbassem.pythonanywhere.com/login",
       date: "OCT 19, 2023",
