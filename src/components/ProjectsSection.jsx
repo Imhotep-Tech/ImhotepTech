@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
 
@@ -11,65 +11,66 @@ const ProjectsSection = () => {
     setIsVisible(true);
   }, []);
 
-  // Extract unique technologies for filtering
-  const allTechnologies = [
-    ...new Set(
-      projects.flatMap((project) =>
-        project.tags.map((tag) =>
-          tag.name.replace(/[🤖📋🌐👁️🔐📱🛡️📊]/g, "").trim()
-        )
-      )
-    ),
-  ];
+  // Normalize tag names into canonical categories for reliable filtering
+  const normalizeToCategory = (name) => {
+    const s = name.toLowerCase();
+    if (s.includes('django')) return 'Django';
+    if (s.includes('flask')) return 'Flask';
+    if (s.includes('react')) return 'React';
+    if (s.includes('tailwind')) return 'Tailwind CSS';
+    if (s.includes('pwa')) return 'PWA';
+    if (s.includes('docker')) return 'Docker';
+    if (s.includes('ai')) return 'AI';
+    if (s.includes('postgres')) return 'PostgreSQL';
+    return name.trim();
+  };
 
-  const filters = ["all", ...allTechnologies.slice(0, 6)]; // Limit to 6 most common
+  // Compute available categories from projects
+  // Main filters only (explicit short list)
+  const filters = ['all', 'Featured', 'Django', 'React', 'Flask', 'AI', 'Libraries / APIs'];
 
-  const filteredProjects =
-    activeFilter === "all"
+  // Count how many libraries are merged into projects
+  const librariesCount = useMemo(() => projects.filter((p) => p.isLibrary).length, []);
+
+  const filteredProjects = useMemo(() => {
+    const byFilter = activeFilter === 'all'
       ? projects
-      : projects.filter((project) =>
-          project.tags.some((tag) =>
-            tag.name.toLowerCase().includes(activeFilter.toLowerCase())
-          )
-        );
+      : activeFilter === 'Featured'
+        ? projects.filter((p) => p.featured)
+        : activeFilter === 'Libraries / APIs'
+        ? projects.filter((p) => p.isLibrary)
+        : projects.filter((project) => project.tags.some((tag) => normalizeToCategory(tag.name) === activeFilter));
+
+    const priorityRank = { high: 3, medium: 2, low: 1 };
+    const parseDate = (d) => new Date(d).getTime() || 0;
+
+    // Sort: featured first, then priority, then date desc
+    return [...byFilter].sort((a, b) => {
+      const f = (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+      if (f !== 0) return f;
+      const p = (priorityRank[b.priority] || 0) - (priorityRank[a.priority] || 0);
+      if (p !== 0) return p;
+      return parseDate(b.date) - parseDate(a.date);
+    });
+  }, [activeFilter]);
 
   return (
     <div className="lg:col-span-8 space-y-8">
       {/* Enhanced Header with more visual elements */}
       <div
-        className={`text-center space-y-8 ${
+        className={`text-center space-y-6 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
         style={{ animationFillMode: 'both' }}
       >
         <div className="relative">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold relative">
-            <span className="text-white">
-              Our Projects
-            </span>
-            {/* Glowing background effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary via-white to-secondary blur-2xl opacity-20 animate-pulse-slow"></div>
+            <span className="text-white">Work</span>
           </h2>
-          
-          {/* Enhanced decorative elements */}
-          <div className="absolute -top-4 -right-4 text-3xl animate-bounce-gentle">
-            <i className="fas fa-rocket text-accent opacity-70"></i>
-          </div>
-          <div className="absolute -bottom-2 -left-2 text-2xl animate-float" style={{ animationDelay: "1s" }}>
-            <i className="fas fa-star text-secondary opacity-50"></i>
-          </div>
-          <div className="absolute top-1/2 -left-6 text-xl animate-float" style={{ animationDelay: "2s" }}>
-            <i className="fas fa-code text-accent/60"></i>
-          </div>
-          <div className="absolute top-1/4 -right-6 text-lg animate-bounce-gentle" style={{ animationDelay: "0.5s" }}>
-            <i className="fas fa-lightbulb text-secondary/60"></i>
-          </div>
         </div>
 
         <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto animate-fade-in-up animate-stagger-1 leading-relaxed">
-          A collection of <span className="text-secondary font-semibold">innovative applications</span> and 
-          <span className="text-accent font-semibold"> cutting-edge tools</span> crafted with modern
-          technologies to solve real-world problems and drive digital transformation.
+          Explore our recent projects and open-source tools.
         </p>
 
         {/* Enhanced Filter Buttons with better animations */}
@@ -82,19 +83,16 @@ const ProjectsSection = () => {
               onClick={() => setActiveFilter(filter)}
               onMouseEnter={() => setHoveredFilter(filter)}
               onMouseLeave={() => setHoveredFilter(null)}
-              className={`group relative px-6 py-3 rounded-full text-sm font-medium transition-all duration-500 transform hover:scale-105 ${
+              className={`group relative px-6 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 ${
                 activeFilter === filter
-                  ? "bg-gradient-to-r from-secondary to-secondary/80 text-primary shadow-lg shadow-secondary/30 animate-glow"
-                  : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/70 hover:text-white border border-gray-700/50 hover:border-secondary/30"
+                  ? "bg-secondary text-primary shadow-sm"
+                  : "bg-gray-800/60 text-gray-300 hover:bg-gray-700/80 hover:text-white border border-gray-700/50"
               }`}
               style={{
                 animationDelay: `${index * 100}ms`,
                 animationFillMode: 'both'
               }}
             >
-              {/* Button shine effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              
               <span className="relative z-10 flex items-center gap-2">
                 {filter === "all" ? (
                   <>
@@ -103,27 +101,27 @@ const ProjectsSection = () => {
                   </>
                 ) : (
                   <>
-                    <i className={`fas fa-${filter.toLowerCase().includes('django') ? 'python' : 
-                      filter.toLowerCase().includes('react') ? 'react' :
-                      filter.toLowerCase().includes('flask') ? 'flask' :
-                      filter.toLowerCase().includes('ai') ? 'brain' :
-                      filter.toLowerCase().includes('pwa') ? 'mobile-alt' :
-                      'code'}`}></i>
+                    <i className={`fas ${
+                      filter === 'Featured' ? 'fa-star' :
+                      filter.toLowerCase().includes('django') ? 'fa-python' :
+                      filter.toLowerCase().includes('react') ? 'fa-code' :
+                      filter.toLowerCase().includes('flask') ? 'fa-flask' :
+                      filter.toLowerCase().includes('ai') ? 'fa-brain' :
+                      filter.toLowerCase().includes('libraries') ? 'fa-book' :
+                      'fa-tag'
+                    }`}></i>
                     {filter}
+                    {filter === 'Libraries / APIs' && (
+                      <span className={`ml-1 inline-flex items-center justify-center text-[10px] leading-none px-1.5 py-0.5 rounded-full ${
+                        activeFilter === filter ? 'bg-primary text-secondary' : 'bg-secondary/20 text-secondary'
+                      }`}>
+                        {librariesCount}
+                      </span>
+                    )}
                   </>
                 )}
-                {activeFilter === filter && (
-                  <i className="fas fa-check animate-bounce-gentle"></i>
-                )}
+                {activeFilter === filter && (<i className="fas fa-check" />)}
               </span>
-              
-              {/* Hover effect particles */}
-              {hoveredFilter === filter && (
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-secondary rounded-full animate-ping"></div>
-                  <div className="absolute top-3/4 right-1/4 w-0.5 h-0.5 bg-accent rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
-                </div>
-              )}
             </button>
           ))}
         </div>
@@ -156,7 +154,7 @@ const ProjectsSection = () => {
         {filteredProjects.map((project, index) => (
           <div
             key={`${project.title}-${activeFilter}`}
-            className="animate-zoom-in hover-lift w-full"
+            className="animate-zoom-in w-full"
             style={{
               animationDelay: `${index * 150}ms`,
               animationFillMode: "both",

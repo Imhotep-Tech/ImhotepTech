@@ -47,10 +47,7 @@ const AboutMe = () => {
           <div className="absolute top-20 right-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
           <div className="absolute bottom-10 left-1/3 w-56 h-56 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
           
-          {/* Additional floating particles */}
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-secondary/30 rounded-full animate-ping"></div>
-          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-accent/40 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-white/20 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
+          {/* Reduced motion: remove particle pings for calmer UX */}
           
           {/* Grid pattern overlay */}
           <div className="absolute inset-0 opacity-5">
@@ -69,15 +66,14 @@ const AboutMe = () => {
             {/* Profile Image */}
             <div className="md:w-1/3 animate-fade-in-left">
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent to-secondary rounded-full blur-lg opacity-30 transform -translate-y-2 translate-x-2 group-hover:scale-110 transition-transform duration-500"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-secondary rounded-full blur-md opacity-20 animate-spin-slow"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent to-secondary rounded-full blur-lg opacity-20"></div>
                 <img 
                   src={founderInfo.image} 
-                  className="w-64 h-64 object-cover rounded-full border-4 border-secondary shadow-xl relative group-hover:scale-105 group-hover:rotate-2 transition-all duration-500" 
+                  className="w-64 h-64 object-cover rounded-full border-4 border-secondary shadow-xl relative transition-transform duration-300 group-hover:scale-105" 
                   alt={`${founderInfo.name}, founder of Imhotep Tech`}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 rounded-full border-2 border-secondary animate-ping opacity-20"></div>
+                <div className="absolute inset-0 rounded-full ring-2 ring-secondary/20"></div>
               </div>
             </div>
             

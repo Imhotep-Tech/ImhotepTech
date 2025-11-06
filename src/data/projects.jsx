@@ -1,4 +1,6 @@
-const projects = [
+import { libraries as libraryItems } from './libraries';
+
+const baseProjects = [
     {
       title: "Imhotep Financial Manager",
       url: "https://imhotep-finance.vercel.app/",
@@ -272,5 +274,25 @@ const projects = [
       ]
     }
   ];
+
+// Map libraries into project-like entries for unified display
+const libraryProjects = (libraryItems || []).map((lib) => ({
+  title: lib.title,
+  url: (lib.buttons && lib.buttons[0] && lib.buttons[0].url) || undefined,
+  date: 'Libraries / APIs',
+  description: lib.description,
+  image: null,
+  imageAlt: lib.title,
+  priority: 'low',
+  featured: false,
+  isLibrary: true,
+  tags: [
+    { name: 'Libraries / APIs', color: 'bg-indigo-900/50' },
+    ...(lib.tags || [])
+  ],
+  buttons: lib.buttons || []
+}));
+
+const projects = [...baseProjects, ...libraryProjects];
 
 export default projects;

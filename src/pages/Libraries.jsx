@@ -38,10 +38,7 @@ const Libraries = () => {
           <div className="absolute top-20 right-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
           <div className="absolute bottom-10 left-1/3 w-56 h-56 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
           
-          {/* Additional floating particles */}
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-secondary/30 rounded-full animate-ping"></div>
-          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-accent/40 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-white/20 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
+          {/* Reduced motion: remove particle pings for calmer UX */}
           
           {/* Grid pattern overlay */}
           <div className="absolute inset-0 opacity-5">
@@ -121,7 +118,7 @@ const Libraries = () => {
               {libraries.map((library, index) => (
                 <div
                   key={index}
-                  className="animate-zoom-in hover-lift"
+                  className="animate-zoom-in"
                   style={{ 
                     animationDelay: `${(index + 4) * 100}ms`,
                     animationFillMode: 'both'

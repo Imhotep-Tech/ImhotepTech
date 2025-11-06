@@ -42,6 +42,22 @@ const SEOHelmet = ({
       ogImageMeta.setAttribute('content', `https://imhoteptech.vercel.app${ogImage}`);
     }
 
+    // Update Twitter tags for consistency
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle && title) {
+      twitterTitle.setAttribute('content', title);
+    }
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription && description) {
+      twitterDescription.setAttribute('content', description);
+    }
+
+    const twitterImage = document.querySelector('meta[name="twitter:image"]');
+    if (twitterImage && ogImage) {
+      twitterImage.setAttribute('content', `https://imhoteptech.vercel.app${ogImage}`);
+    }
+
     // Update canonical URL
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (canonical) {

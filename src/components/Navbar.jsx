@@ -9,10 +9,9 @@ const Navbar = ({ currentPage = 'home' }) => {
   };
 
   const getNavLinkClass = (page) => {
-    const baseClass = "transition-colors duration-300 hover:underline";
-    return currentPage === page 
-      ? `text-secondary hover:text-secondary ${baseClass}`
-      : `text-gray-300 hover:text-secondary ${baseClass}`;
+    const baseClass = "relative transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-primary/90";
+    const active = currentPage === page;
+    return `${active ? 'text-secondary' : 'text-gray-300 hover:text-secondary'} ${baseClass}`;
   };
 
   return (
@@ -28,16 +27,40 @@ const Navbar = ({ currentPage = 'home' }) => {
             </span>
           </Link>
           
-          <div className="hidden md:flex space-x-6">
-            <Link to="/libraries" className={getNavLinkClass('libraries')}>
-              Libraries / APIs
+          <div className="hidden md:flex items-center space-x-6">
+            <Link to="/libraries" className={getNavLinkClass('libraries')} aria-current={currentPage === 'libraries' ? 'page' : undefined}>
+              <span className="relative">
+                Libraries / APIs
+                {currentPage === 'libraries' && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-secondary rounded-full"></span>
+                )}
+              </span>
             </Link>
-            <Link to="/about-me" className={getNavLinkClass('about-me')}>
-              The Founder
+            <Link to="/about-me" className={getNavLinkClass('about-me')} aria-current={currentPage === 'about-me' ? 'page' : undefined}>
+              <span className="relative">
+                The Founder
+                {currentPage === 'about-me' && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-secondary rounded-full"></span>
+                )}
+              </span>
             </Link>
-            <Link to="/social-media" className={getNavLinkClass('social-media')}>
-              Social Media
+            <Link to="/social-media" className={getNavLinkClass('social-media')} aria-current={currentPage === 'social-media' ? 'page' : undefined}>
+              <span className="relative">
+                Social Media
+                {currentPage === 'social-media' && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-secondary rounded-full"></span>
+                )}
+              </span>
             </Link>
+
+            <a
+              href="mailto:imhoteptech@outlook.com"
+              className="group relative inline-flex items-center px-5 py-2 bg-secondary text-primary rounded-full font-semibold shadow-lg hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <i className="fas fa-paper-plane mr-2" />
+              Get a Quote
+            </a>
           </div>
           
           <button 
@@ -51,17 +74,20 @@ const Navbar = ({ currentPage = 'home' }) => {
         </div>
         
         {isMobileMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden animate-fade-in-down">
             <div className="flex flex-col space-y-4 py-4">
-              <Link to="/libraries" className={getNavLinkClass('libraries')} onClick={toggleMobileMenu}>
+              <Link to="/libraries" className={getNavLinkClass('libraries')} onClick={toggleMobileMenu} aria-current={currentPage === 'libraries' ? 'page' : undefined}>
                 Libraries / APIs
               </Link>
-              <Link to="/about-me" className={getNavLinkClass('about-me')} onClick={toggleMobileMenu}>
+              <Link to="/about-me" className={getNavLinkClass('about-me')} onClick={toggleMobileMenu} aria-current={currentPage === 'about-me' ? 'page' : undefined}>
                 The Founder
               </Link>
-              <Link to="/social-media" className={getNavLinkClass('social-media')} onClick={toggleMobileMenu}>
+              <Link to="/social-media" className={getNavLinkClass('social-media')} onClick={toggleMobileMenu} aria-current={currentPage === 'social-media' ? 'page' : undefined}>
                 Social Media
               </Link>
+              <a href="mailto:imhoteptech@outlook.com" className="inline-flex items-center justify-center px-4 py-3 bg-secondary text-primary rounded-full font-semibold shadow-md">
+                <i className="fas fa-paper-plane mr-2" /> Contact
+              </a>
             </div>
           </div>
         )}
