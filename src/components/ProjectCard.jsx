@@ -25,27 +25,21 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <div 
-      className="group relative bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-gray-700/50 hover:border-secondary/40 transition-colors duration-300 w-full cursor-pointer"
+      className="group relative bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-gray-700/50 hover:border-secondary/40 transition-all duration-200 w-full cursor-pointer hover-lift"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleCardClick}
-      style={{
-        animationDelay: `${index * 100}ms`,
-        animationFillMode: 'both'
-      }}
     >
-      {/* Subtle hover ring */}
-      <div className={`absolute inset-0 rounded-3xl ring-0 ring-secondary/0 transition-all duration-300 ${isHovered ? 'ring-2 ring-secondary/30' : ''}`}></div>
 
       {/* Main Content Container */}
       <div className={`${image ? "flex flex-col md:flex-row" : "p-8"} w-full relative z-10`}>
-        {/* Enhanced Project Image with better hover effects */}
+        {/* Project Image */}
         {image && (
           <div className="w-full md:w-1/3 p-6 md:p-8 flex items-center justify-center relative flex-shrink-0">
             <div className="relative overflow-hidden rounded-2xl">
               <img 
                 src={image} 
-                className={`relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl shadow-xl transition-transform duration-300 ${
+                className={`relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl shadow-xl transition-transform duration-200 ${
                   isHovered ? 'scale-105' : 'scale-100'
                 } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 alt={imageAlt} 
@@ -63,37 +57,35 @@ const ProjectCard = ({ project, index }) => {
         
         {/* Enhanced Project Details with better animations */}
         <div className={`${image ? "w-full md:w-2/3 p-6 md:p-8" : "relative z-10"} flex flex-col justify-between min-h-0`}>
-          {/* Header Section with enhanced styling */}
+          {/* Header Section */}
           <div className="mb-6">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white group-hover:text-secondary transition-colors duration-500 flex-1">
-                <span className="hover:underline decoration-secondary decoration-2 underline-offset-4 break-words relative">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white group-hover:text-secondary transition-colors duration-200 flex-1">
+                <span className="hover:underline decoration-secondary decoration-2 underline-offset-4 break-words">
                   {title}
-                  <i className="fas fa-external-link-alt ml-2 text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-1"></i>
-                  {/* Text glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-accent/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <i className="fas fa-external-link-alt ml-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"></i>
                 </span>
               </h3>
               <div className="flex-shrink-0">
-                <span className="text-xs bg-gradient-to-r from-accent via-secondary to-accent text-white px-4 py-2 rounded-full font-semibold shadow-lg whitespace-nowrap animate-pulse-slow">
+                <span className="text-xs bg-gradient-to-r from-accent to-secondary text-white px-4 py-2 rounded-full font-semibold shadow-lg whitespace-nowrap">
                   {date}
                 </span>
               </div>
             </div>
             
-            {/* Enhanced Description */}
+            {/* Description */}
             <div className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed">
               {typeof description === 'string' ? (
-                <p className="group-hover:text-gray-200 transition-colors duration-300">{description}</p>
+                <p className="group-hover:text-gray-200 transition-colors duration-200">{description}</p>
               ) : (
-                <div className="group-hover:text-gray-200 transition-colors duration-300">{description}</div>
+                <div className="group-hover:text-gray-200 transition-colors duration-200">{description}</div>
               )}
               
               {features && (
                 <ul className="list-none mt-4 space-y-3">
                   {features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3 text-sm group-hover:text-gray-200 transition-colors duration-300">
-                      <i className="fas fa-check-circle text-secondary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300"></i>
+                    <li key={featureIndex} className="flex items-start gap-3 text-sm">
+                      <i className="fas fa-check-circle text-secondary mt-0.5 flex-shrink-0"></i>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -121,7 +113,7 @@ const ProjectCard = ({ project, index }) => {
               </div>
             )}
             
-            {/* Enhanced Buttons */}
+            {/* Buttons */}
             <div className="flex flex-wrap gap-3" onClick={(e) => e.stopPropagation()}>
               {buttons.map((button, buttonIndex) => (
                 <a 
@@ -129,12 +121,8 @@ const ProjectCard = ({ project, index }) => {
                   href={button.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className={`group/button relative px-6 py-3 ${button.style} text-white rounded-xl font-semibold text-sm 
-                             shadow-md hover:shadow-lg transition-transform duration-200 flex items-center gap-2`}
-                  style={{
-                    animationDelay: `${buttonIndex * 100}ms`,
-                    animationFillMode: 'both'
-                  }}
+                  className={`px-6 py-3 ${button.style} text-white rounded-xl font-semibold text-sm 
+                             shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2 hover-lift`}
                 >
                   <i className={`${button.icon}`}></i>
                   <span>{button.text}</span>
@@ -144,7 +132,6 @@ const ProjectCard = ({ project, index }) => {
           </div>
         </div>
       </div>
-      {/* Minimal decorations removed for cleaner UX */}
     </div>
   );
 };
