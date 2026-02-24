@@ -62,13 +62,13 @@ const ProjectsSection = () => {
         }`}
       >
         <div className="relative">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold relative">
-            <span className="text-white">Work</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold relative">
+            <span className="text-white">Selected work</span>
           </h2>
         </div>
 
-        <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-          Explore our recent projects and open-source tools.
+        <p className="text-gray-400 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
+          A few real projects and tools we&apos;ve built.
         </p>
 
         {/* Filter Buttons */}

@@ -48,26 +48,12 @@ const SocialCard = ({ platform, index }) => {
         {/* Content */}
         <div className="text-center flex-grow flex flex-col justify-between">
           <div>
-            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-secondary transition-colors duration-300">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-secondary transition-colors duration-300">
               {platform.name}
             </h3>
-            <p className="text-gray-400 text-center mb-4 leading-relaxed">
+            <p className="text-gray-400 text-center mb-4 text-sm">
               {platform.description}
             </p>
-
-            {/* Features */}
-            {platform.features && (
-              <div className="mb-6">
-                <ul className="text-sm text-gray-300 space-y-2">
-                  {platform.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center justify-center gap-2">
-                      <i className="fas fa-check-circle text-secondary text-xs"></i>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
 
           {/* Username/Button */}

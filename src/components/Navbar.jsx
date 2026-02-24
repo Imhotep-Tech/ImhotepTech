@@ -36,14 +36,16 @@ const Navbar = ({ currentPage = 'home' }) => {
                 )}
               </span>
             </Link>
-            <Link to="/about-me" className={getNavLinkClass('about-me')} aria-current={currentPage === 'about-me' ? 'page' : undefined}>
+            <a
+              href="https://kbassem.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={getNavLinkClass('about-me')}
+            >
               <span className="relative">
                 The Founder
-                {currentPage === 'about-me' && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-secondary rounded-full"></span>
-                )}
               </span>
-            </Link>
+            </a>
             <Link to="/social-media" className={getNavLinkClass('social-media')} aria-current={currentPage === 'social-media' ? 'page' : undefined}>
               <span className="relative">
                 Social Media
@@ -78,9 +80,15 @@ const Navbar = ({ currentPage = 'home' }) => {
               <Link to="/libraries" className={getNavLinkClass('libraries')} onClick={toggleMobileMenu} aria-current={currentPage === 'libraries' ? 'page' : undefined}>
                 Libraries / APIs
               </Link>
-              <Link to="/about-me" className={getNavLinkClass('about-me')} onClick={toggleMobileMenu} aria-current={currentPage === 'about-me' ? 'page' : undefined}>
+              <a
+                href="https://kbassem.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={getNavLinkClass('about-me')}
+                onClick={toggleMobileMenu}
+              >
                 The Founder
-              </Link>
+              </a>
               <Link to="/social-media" className={getNavLinkClass('social-media')} onClick={toggleMobileMenu} aria-current={currentPage === 'social-media' ? 'page' : undefined}>
                 Social Media
               </Link>

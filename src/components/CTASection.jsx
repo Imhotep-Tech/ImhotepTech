@@ -6,19 +6,19 @@ const CTASection = () => {
       <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
       <div className="absolute -bottom-12 right-0 w-56 h-56 bg-accent/10 rounded-full blur-3xl" />
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/10 text-sm text-gray-200 mb-6">
+        <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/10 text-xs md:text-sm text-gray-200 mb-4">
           <i className="fas fa-bolt text-secondary mr-2" />
           Fast turn-around for SMEs and startups
         </div>
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">
-          Ready to build something amazing?
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-white">
+          Ready to ship your next app?
         </h2>
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          From internal tools to customer-facing apps, we craft robust, beautiful software that drives results.
+        <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+          From internal tools to customer-facing apps, we build clean, reliable software that supports your team and customers.
         </p>
         
         {/* Enhanced CTA buttons - more prominent */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <a 
             href="mailto:imhoteptech@outlook.com" 
             className="group relative px-10 py-5 bg-gradient-to-r from-secondary to-secondary/90 text-primary rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 min-w-[220px]"
@@ -52,8 +52,8 @@ const CTASection = () => {
         </div>
         
         {/* Additional contact methods */}
-        <div className="mt-8 pt-8 border-t border-white/10">
-          <p className="text-gray-400 mb-4">Or reach out directly:</p>
+        <div className="mt-6 pt-6 border-t border-white/10">
+          <p className="text-gray-400 mb-3 text-sm">Prefer a quick message?</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a 
               href="mailto:imhoteptech@outlook.com"

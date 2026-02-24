@@ -51,7 +51,14 @@ const Footer = () => {
             <div className="flex md:flex-col gap-4 text-gray-400">
               <a href="/" className="hover:text-white transition-colors duration-200">Home</a>
               <a href="/libraries" className="hover:text-white transition-colors duration-200">Libraries / APIs</a>
-              <a href="/about-me" className="hover:text-white transition-colors duration-200">The Founder</a>
+              <a
+                href="https://kbassem.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+              >
+                The Founder
+              </a>
               <a href="/social-media" className="hover:text-white transition-colors duration-200">Social Media</a>
             </div>
           </div>

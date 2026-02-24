@@ -34,10 +34,9 @@ const AboutSection = () => {
           />
         </div>
         
-        <p className="text-gray-300 leading-relaxed">
-          Imhotep Tech is a pioneering software development firm based in Egypt. 
-          We specialize in crafting innovative software solutions tailored to meet 
-          the diverse needs of our clients.
+        <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+          Imhotep Tech is a small, focused software studio in Egypt. We design and ship web apps that solve real problems for real
+          businesses.
         </p>
       </div>
       

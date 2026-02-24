@@ -3,57 +3,37 @@ const socialPlatforms = [
     name: "Threads",
     username: "@imhotep_tech",
     url: "https://www.threads.net/@imhotep_tech",
-    description: "Follow our threads for quick updates and tech discussions.",
+    description: "Quick updates and short notes.",
     icon: "fas fa-comments",
     color: "bg-gray-800 hover:bg-gray-700",
-    features: [
-      "Quick updates",
-      "Tech discussions", 
-      "Real-time thoughts",
-      "Community engagement"
-    ]
+    features: []
   },
   {
     name: "Instagram",
     username: "@imhotep_tech",
     url: "https://www.instagram.com/imhotep_tech",
-    description: "Check out our visual updates and project highlights.",
+    description: "Visual updates and project shots.",
     icon: "fab fa-instagram",
     color: "bg-gradient-to-r from-pink-500 to-orange-400",
-    features: [
-      "Visual project updates",
-      "Behind the scenes",
-      "Development process",
-      "Team highlights"
-    ]
+    features: []
   },
   {
     name: "Twitter/X",
     username: "@Imhoteptech1",
     url: "https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09",
-    description: "Follow our tweets for real-time updates and tech news.",
+    description: "Short updates and links.",
     icon: "fab fa-twitter",
     color: "bg-gray-900 hover:bg-gray-800",
-    features: [
-      "Real-time updates",
-      "Tech news sharing",
-      "Industry insights",
-      "Quick announcements"
-    ]
+    features: []
   },
   {
     name: "GitHub",
     username: "Imhotep-Tech",
     url: "https://github.com/Imhotep-Tech",
-    description: "Explore our open-source projects and contribute to our code.",
+    description: "Our open-source projects.",
     icon: "fab fa-github",
     color: "bg-gray-800 hover:bg-gray-700",
-    features: [
-      "Open-source projects",
-      "Code repositories",
-      "Collaboration",
-      "Community contributions"
-    ]
+    features: []
   }
 ];
 
@@ -87,16 +67,12 @@ const socialStats = [
 const socialContent = {
   hero: {
     title: "Connect With Us",
-    subtitle: "Follow Imhotep Tech on our social media platforms to stay updated with our latest projects and news!"
+    subtitle: "Find Imhotep Tech on these channels."
   },
   sections: {
     platforms: {
       title: "Our Social Media Platforms",
-      description: "Stay connected with us across multiple channels for the latest updates, insights, and community discussions."
-    },
-    engagement: {
-      title: "Join Our Community",
-      description: "Be part of our growing community of developers, tech enthusiasts, and innovators."
+      description: "Follow us where it suits you best."
     }
   }
 };

@@ -4,9 +4,7 @@ import Footer from '../components/Footer';
 import SocialCard from '../components/SocialCard';
 import {
   socialPlatforms,
-  socialStats,
-  socialContent,
-  engagementFeatures
+  socialContent
 } from '../data/socialMedia';
 
 const SocialMedia = () => {
@@ -36,29 +34,13 @@ const SocialMedia = () => {
       <div className="w-full font-sans">
         <Navbar currentPage="social-media" />
         
-        {/* Enhanced Hero Section */}
+        {/* Hero Section */}
         <div className="relative w-full bg-gradient-to-br from-primary via-primary/70 to-dark overflow-hidden">
-          {/* Enhanced animated background elements */}
+          {/* Minimal animated background elements */}
           <div className="absolute inset-0 w-full overflow-hidden">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-float"></div>
             <div className="absolute top-20 right-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
             <div className="absolute bottom-10 left-1/3 w-56 h-56 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-            
-            {/* Additional floating particles */}
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-secondary/30 rounded-full animate-ping"></div>
-            <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-accent/40 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
-            <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-white/20 rounded-full animate-ping" style={{ animationDelay: '3s' }}></div>
-            
-            {/* Grid pattern overlay */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="w-full h-full" style={{
-                backgroundImage: `
-                  linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-                `,
-                backgroundSize: '50px 50px'
-              }}></div>
-            </div>
           </div>
           
           <div className="container mx-auto px-4 py-24 md:py-32 relative z-10 w-full">
@@ -75,23 +57,9 @@ const SocialMedia = () => {
                 </div>
               </div>
               
-              <p className="text-lg md:text-xl mb-10 text-gray-200 animate-fade-in-up animate-stagger-1">
+              <p className="text-base md:text-lg mb-6 text-gray-200 animate-fade-in-up animate-stagger-1">
                 {socialContent.hero.subtitle}
               </p>
-              
-              {/* Social Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in-up animate-stagger-2">
-                {socialStats.map((stat, index) => (
-                  <div 
-                    key={index}
-                    className="bg-primary/30 backdrop-blur-sm rounded-2xl p-4 border border-gray-700/50 hover:border-secondary/30 transition-all duration-300 hover-lift"
-                  >
-                    <i className={`${stat.icon} text-2xl ${stat.color} mb-2`}></i>
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-xs text-gray-400">{stat.metric}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
           
@@ -123,7 +91,7 @@ const SocialMedia = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
                   {socialContent.sections.platforms.title}
                 </h2>
-                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto">
                   {socialContent.sections.platforms.description}
                 </p>
               </div>
@@ -141,72 +109,6 @@ const SocialMedia = () => {
                     <SocialCard platform={platform} index={index} />
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Engagement Features Section */}
-            <div className={`mb-16 animate-fade-in-up animate-stagger-6`}>
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                  {socialContent.sections.engagement.title}
-                </h2>
-                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                  {socialContent.sections.engagement.description}
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
-                {engagementFeatures.map((feature, index) => (
-                  <div 
-                    key={index}
-                    className="group bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-gray-700/50 hover:border-secondary/30 transition-all duration-500 hover-lift animate-zoom-in"
-                    style={{ animationDelay: `${(index + 8) * 100}ms`, animationFillMode: 'both' }}
-                  >
-                    <div className="relative mb-6">
-                      <div className="bg-secondary/20 h-16 w-16 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <i className={`${feature.icon} text-2xl ${feature.color}`}></i>
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-secondary transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className={`text-center animate-fade-in-up animate-stagger-9`}>
-              <div className="bg-gradient-to-br from-primary/60 via-primary/50 to-primary/40 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-gray-700/50 hover:border-secondary/50 transition-all duration-500 hover-lift max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold mb-6 text-secondary flex items-center justify-center gap-3">
-                  <i className="fas fa-rocket animate-bounce-gentle"></i>
-                  Stay Connected
-                </h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  Don't miss out on our latest updates, project releases, and tech insights. 
-                  Follow us on your favorite platform and be part of our growing community!
-                </p>
-                
-                {/* Quick Follow Buttons */}
-                <div className="flex flex-wrap justify-center gap-3">
-                  {socialPlatforms.slice(0, 3).map((platform, index) => (
-                    <a 
-                      key={index}
-                      href={platform.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={`group/quick px-4 py-2 ${platform.color} text-white rounded-lg font-medium text-sm 
-                                shadow-md transition-all duration-300 flex items-center gap-2 hover-lift`}
-                    >
-                      <i className={`${platform.icon} group-hover/quick:rotate-12 transition-transform duration-300`}></i>
-                      {platform.name}
-                    </a>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -236,6 +138,7 @@ const SocialMedia = () => {
             </div>
           </button>
         )}
+      </div>
     </>
   );
 };

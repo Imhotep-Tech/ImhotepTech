@@ -2,6 +2,39 @@ import { libraries as libraryItems } from './libraries';
 
 const baseProjects = [
     {
+      title: "Loyalty Program — Full-Stack Web Application",
+      url: "https://7csloyal.vercel.app/",
+      date: "Feb 23, 2026",
+      description: "Full-stack loyalty platform for a multi-branch car services company in Egypt, built in two weeks with Django REST Framework and React 19.",
+      features: [
+        "QR-based point redemption with short-lived codes.",
+        "Automated invoice import from an external system into PostgreSQL.",
+        "Role-based access and bilingual (Arabic/English) PWA experience."
+      ],
+      image: null,
+      imageAlt: "7CS Loyalty Program Web Application",
+      priority: "high",
+      featured: true,
+      tags: [
+        { name: "Django REST Framework", color: "bg-green-900/50" },
+        { name: "React 19", color: "bg-cyan-900/50" },
+        { name: "Tailwind CSS", color: "bg-pink-900/50" },
+        { name: "PostgreSQL", color: "bg-gray-800/50" },
+        { name: "Docker", color: "bg-blue-400/50" },
+        { name: "JWT Authentication", color: "bg-yellow-900/50" },
+        { name: "PWA", color: "bg-indigo-900/50" },
+        { name: "Playwright", color: "bg-purple-900/50" },
+      ],
+      buttons: [
+        {
+          text: "View Live",
+          url: "https://7csloyal.vercel.app/",
+          style: "bg-accent hover:bg-accent/80",
+          icon: "fas fa-external-link-alt"
+        }
+      ]
+    },
+    {
       title: "Imhotep Financial Manager",
       url: "https://imhotep-finance.vercel.app/",
       date: "Aug 31, 2025",
@@ -85,7 +118,7 @@ const baseProjects = [
       title: "ImhotepChef - AI-Powered Culinary Companion",
       url: "https://imhotep-chef.vercel.app/",
       date: "August 7, 2025",
-      description: "Transform your everyday ingredients into extraordinary meals with the power of artificial intelligence. ImhotepChef generates personalized recipes based on whatever ingredients you have available, helping you reduce food waste and discover new culinary adventures.",
+      description: "AI-powered recipe assistant that turns whatever ingredients you have into ready-to-cook meals, helping reduce food waste and keep cooking fun.",
       image: "/imhotepchef.png",
       imageAlt: "ImhotepChef - AI-Powered Culinary Companion",
       priority: "medium",
@@ -118,7 +151,7 @@ const baseProjects = [
       title: "Imhotep Currency Converter",
       url: "https://imhotepcc.vercel.app/",
       date: "July 4, 2025",
-      description: "A powerful React-based currency conversion tool with real-time exchange rates powered by the Imhotep Exchange Rates API. Features daily rate updates and a modern, responsive interface perfect for travelers and business owners who need accurate, up-to-date currency information.",
+      description: "React-based currency converter backed by the Imhotep Exchange Rates API, with daily updates and a simple, responsive UI for quick checks.",
       image: "/icc.png",
       imageAlt: "Imhotep Currency Converter",
       priority: "medium",
@@ -147,7 +180,7 @@ const baseProjects = [
       title: "Imhotep Smart Clinic",
       url: "https://imhotepsmartclinic.pythonanywhere.com/",
       date: "April 24, 2025",
-      description: "A comprehensive medical practice management system with digital records, appointment scheduling, and prescription generation. Features role-based access control, detailed patient records, and practice analytics. Built with Django and TailwindCSS, it includes multilingual support.",
+      description: "Clinic management system for appointments, patient records, and prescriptions, with role-based access and basic analytics, built with Django and Tailwind.",
       image: "https://imhotepsmartclinic.pythonanywhere.com/static/imhotep_clinic.png",
       imageAlt: "Imhotep Smart Clinic App",
       priority: "medium",
@@ -179,7 +212,7 @@ const baseProjects = [
       title: "Imhotep Tasks",
       url: "https://imhoteptasks.pythonanywhere.com/",
       date: "March 17, 2025",
-      description: "Todo List App designed to help users stay organized and productive. Built with Django, the app offers a seamless experience across web, mobile and desktop platforms (via TWA and Electron)",
+      description: "Task manager built with Django, available on web, mobile, and desktop (via TWA and Electron) to keep your to-dos in one place.",
       image: "/imhotep_tasks.png",
       imageAlt: "Imhotep Tasks App",
       priority: "medium",
@@ -208,7 +241,7 @@ const baseProjects = [
       title: "Imhotep Skills",
       url: "https://imhotepskills.pythonanywhere.com/",
       date: "February 12, 2025",
-      description: "Unlock your full potential with Imhotep Skills! Manage your learning journey with personalized skill suggestions, track your progress, and create your own skill plans. Stay ahead in your career with AI-powered insights.",
+      description: "Learning tracker that lets you plan skills, track progress, and get basic AI-powered suggestions for what to learn next.",
       image: "/imhotep_skills.jpeg",
       imageAlt: "Imhotep Skills App",
       priority: "medium",
@@ -232,7 +265,7 @@ const baseProjects = [
       title: "The First Program",
       url: "https://kbassem.pythonanywhere.com/login",
       date: "OCT 19, 2023",
-      description: "This was a Flask application for a clinic, managing patient data and doctor operations with ease.",
+      description: "Early Flask app for a clinic, handling basic patient data and doctor operations.",
       image: null, // No image for this project
       imageAlt: "The First Program",
       priority: "low",
