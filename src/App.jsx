@@ -8,7 +8,7 @@ import SocialMedia from './pages/SocialMedia';
 function App() {
   return (
     <Router>
-      <div className="w-full min-h-screen bg-gradient-to-b from-primary to-dark text-white overflow-x-hidden">
+      <div className="w-full min-h-screen bg-bg text-ink font-sans overflow-x-hidden antialiased">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/libraries" element={<Libraries />} />

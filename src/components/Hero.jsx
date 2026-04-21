@@ -1,66 +1,79 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const Hero = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
   return (
-    <div className="relative w-full bg-gradient-to-br from-primary via-primary/70 to-dark overflow-hidden">
-      {/* Minimal background elements */}
-      <div className="absolute inset-0 w-full overflow-hidden">
-        <div className="absolute -top-10 right-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-      </div>
-      
-      <div className="container mx-auto px-4 py-20 md:py-28 relative z-10 w-full">
-        <div className="max-w-4xl mx-auto">
-          {/* Main heading + tagline */}
-          <div className="text-center space-y-5">
-            <div className={`relative ${isLoaded ? 'animate-fade-in' : 'opacity-0'}`}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight">
-                Imhotep Tech
-              </h1>
-            </div>
+    <section className="relative w-full overflow-hidden border-b border-line/70">
+      {/* Subtle backdrop */}
+      <div aria-hidden className="absolute inset-0 bg-dotgrid opacity-40" />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-bg via-bg to-surface/30"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[480px] w-[880px] rounded-full bg-secondary/[0.07] blur-3xl"
+      />
 
-            <div className={`relative ${isLoaded ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-200 italic font-light leading-relaxed">
-                Win in your mind <span className="mx-3 text-secondary">•</span> and you will win in reality
-              </p>
-            </div>
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 pt-20 pb-20 md:pt-28 md:pb-24">
+        <div className="max-w-3xl">
+          {/* Eyebrow */}
+          <div className="animate-fade-in flex items-center gap-3 text-xs font-medium uppercase tracking-[0.18em] text-muted">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-secondary" />
+            Software Studio · Cairo, Egypt
+          </div>
 
-            {/* Primary CTA */}
-            <div className={`mt-5 ${isLoaded ? 'animate-fade-in-up animate-stagger-2' : 'opacity-0'}`}>
-              <a 
-                href="mailto:imhoteptech@outlook.com" 
-                className="group relative inline-flex items-center px-10 py-4 bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white rounded-full font-semibold text-base md:text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-200"
-              >
-                <i className="fas fa-envelope mr-3" />
-                <span>Start a project</span>
-              </a>
-              
-              {/* Subtext removed for cleaner hero */}
-            </div>
+          {/* Heading */}
+          <h1 className="animate-fade-in-up animate-stagger-1 mt-6 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tightest text-ink">
+            We design and build{' '}
+            <span className="text-secondary">dependable software</span>{' '}
+            that moves your business forward.
+          </h1>
+
+          {/* Sub */}
+          <p className="animate-fade-in-up animate-stagger-2 mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-muted">
+            Imhotep Tech is a small, focused studio shipping web and mobile
+            applications end‑to‑end — from product discovery and UX to
+            production deployment and maintenance.
+          </p>
+
+          {/* CTAs */}
+          <div className="animate-fade-in-up animate-stagger-3 mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
+            <a
+              href="mailto:imhoteptech@outlook.com"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-primary shadow-soft hover:bg-secondary/90 transition-colors"
+            >
+              <i className="fas fa-envelope text-xs" />
+              Start a project
+            </a>
+            <a
+              href="#work"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-surface/50 px-6 py-3 text-sm font-semibold text-ink hover:bg-surface transition-colors"
+            >
+              <i className="fas fa-arrow-down text-xs" />
+              See our work
+            </a>
+          </div>
+
+          {/* Trust row */}
+          <div className="animate-fade-in-up animate-stagger-4 mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
+            <span className="inline-flex items-center gap-2">
+              <i className="fas fa-check-circle text-secondary" />
+              15+ projects delivered
+            </span>
+            <span className="hidden sm:inline text-line">|</span>
+            <span className="inline-flex items-center gap-2">
+              <i className="fas fa-globe text-secondary" />
+              Clients across EG, EU &amp; US
+            </span>
+            <span className="hidden sm:inline text-line">|</span>
+            <span className="inline-flex items-center gap-2">
+              <i className="fas fa-bolt text-secondary" />
+              Fast, reliable delivery
+            </span>
           </div>
         </div>
       </div>
-      
-      {/* Wave separator */}
-      <div className="relative h-32 w-full">
-        <svg className="absolute bottom-0 w-full h-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#1a202c" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#1a202c" stopOpacity="1" />
-              <stop offset="100%" stopColor="#1a202c" stopOpacity="1" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#waveGradient)" d="M0,160L60,149.3C120,139,240,117,360,128C480,139,600,181,720,181.3C840,181,960,139,1080,122.7C1200,107,1320,117,1380,122.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
-        </svg>
-      </div>
-    </div>
+    </section>
   );
 };
 

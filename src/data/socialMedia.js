@@ -4,7 +4,7 @@ const socialPlatforms = [
     username: "@imhotep_tech",
     url: "https://www.threads.net/@imhotep_tech",
     description: "Quick updates and short notes.",
-    icon: "fas fa-comments",
+    icon: "fab fa-threads",
     color: "bg-gray-800 hover:bg-gray-700",
     features: []
   },
@@ -18,11 +18,11 @@ const socialPlatforms = [
     features: []
   },
   {
-    name: "Twitter/X",
+    name: "X",
     username: "@Imhoteptech1",
     url: "https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09",
     description: "Short updates and links.",
-    icon: "fab fa-twitter",
+    icon: "fab fa-x-twitter",
     color: "bg-gray-900 hover:bg-gray-800",
     features: []
   },

@@ -1,79 +1,128 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+const SOCIAL_LINKS = [
+  {
+    href: 'mailto:imhoteptech@outlook.com',
+    icon: 'fa fa-envelope',
+    label: 'Email',
+  },
+  {
+    href: 'https://github.com/Imhotep-Tech',
+    icon: 'fab fa-github',
+    label: 'GitHub',
+    external: true,
+  },
+  {
+    href: 'https://www.linkedin.com/in/karimbassem',
+    icon: 'fab fa-linkedin',
+    label: 'LinkedIn',
+    external: true,
+  },
+  {
+    href: 'https://x.com/Imhoteptech1',
+    icon: 'fab fa-x-twitter',
+    label: 'Twitter / X',
+    external: true,
+  },
+  {
+    href: 'https://www.instagram.com/imhotep_tech',
+    icon: 'fab fa-instagram',
+    label: 'Instagram',
+    external: true,
+  },
+];
 
 const Footer = () => {
-  const socialLinks = [
-    {
-      href: "mailto:imhoteptech@outlook.com",
-      icon: "fa fa-envelope fa-lg",
-      label: "Email"
-    },
-    {
-      href: "https://www.instagram.com/imhotep_tech?igsh=YXV0Y24xZnNveDQ5",
-      icon: "fab fa-instagram fa-lg",
-      label: "Instagram",
-      external: true
-    },
-    {
-      href: "https://x.com/Imhoteptech1?t=E5JmfSp5WpyZaWkDzILpKw&s=09",
-      icon: "fab fa-twitter fa-lg",
-      label: "Twitter",
-      external: true
-    },
-    {
-      href: "https://github.com/Imhotep-Tech",
-      icon: "fab fa-github fa-lg",
-      label: "GitHub",
-      external: true
-    },
-    {
-      href: "https://www.linkedin.com/in/karimbassem",
-      icon: "fab fa-linkedin fa-lg",
-      label: "LinkedIn",
-      external: true
-    }
-  ];
-
+  const year = new Date().getFullYear();
   return (
-    <footer className="w-full bg-dark border-t border-gray-800 py-12">
-      <div className="container mx-auto px-4 max-w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <div className="flex items-center mb-6">
-              <span className="bg-secondary text-primary p-1 rounded mr-2">IT</span>
-              <span className="text-xl font-bold text-white">Imhotep Tech</span>
+    <footer className="w-full border-t border-line/70 bg-bg">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {/* Brand */}
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-secondary text-primary font-bold text-sm">
+                IT
+              </span>
+              <span className="text-[15px] font-semibold text-ink">Imhotep Tech</span>
             </div>
-            <p className="text-gray-400 mb-4">
-              &copy; 2023-{new Date().getFullYear()} Imhotep Tech. All rights reserved.
+            <p className="mt-4 max-w-sm text-sm text-muted leading-relaxed">
+              A small software studio based in Egypt. We build web and mobile
+              applications end‑to‑end for founders and teams who want
+              dependable software.
+            </p>
+            <p className="mt-6 text-xs text-subtle">
+              &copy; 2023–{year} Imhotep Tech. All rights reserved.
             </p>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-            <div className="flex md:flex-col gap-4 text-gray-400">
-              <a href="/" className="hover:text-white transition-colors duration-200">Home</a>
-              <a href="/libraries" className="hover:text-white transition-colors duration-200">Libraries / APIs</a>
-              <a
-                href="https://kbassem.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-200"
-              >
-                The Founder
-              </a>
-              <a href="/social-media" className="hover:text-white transition-colors duration-200">Social Media</a>
-            </div>
-          </div>
-          <div className="md:text-right">
-            <h3 className="text-lg font-semibold text-white mb-4">Connect with us</h3>
-            <div className="flex md:justify-end gap-4">
-              {socialLinks.map((link, index) => (
-                <a 
-                  key={index}
-                  href={link.href} 
-                  {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                  aria-label={link.label}
+
+          {/* Sitemap */}
+          <div className="md:col-span-3">
+            <h4 className="text-[11px] font-semibold tracking-[0.18em] uppercase text-subtle">
+              Navigate
+            </h4>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              <li>
+                <Link to="/" className="text-muted hover:text-ink transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/libraries"
+                  className="text-muted hover:text-ink transition-colors"
                 >
-                  <i className={link.icon}></i>
+                  Libraries &amp; APIs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/social-media"
+                  className="text-muted hover:text-ink transition-colors"
+                >
+                  Social
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://kbassem.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-ink transition-colors"
+                >
+                  Founder
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="md:col-span-4">
+            <h4 className="text-[11px] font-semibold tracking-[0.18em] uppercase text-subtle">
+              Get in touch
+            </h4>
+            <a
+              href="mailto:imhoteptech@outlook.com"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-ink hover:text-secondary transition-colors"
+            >
+              <i className="fas fa-envelope text-secondary" />
+              imhoteptech@outlook.com
+            </a>
+
+            <div className="mt-5 flex items-center gap-2">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  {...(s.external && {
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  })}
+                  aria-label={s.label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line bg-surface/60 text-muted hover:text-ink hover:border-line/0 hover:bg-surface transition-colors"
+                >
+                  <i className={`${s.icon} text-sm`} />
                 </a>
               ))}
             </div>

@@ -25,9 +25,9 @@ const founderInfo = {
       color: "bg-gray-800 hover:bg-gray-700"
     },
     {
-      name: "Twitter/X",
+      name: "X",
       url: "https://x.com/kbassem10",
-      icon: "fab fa-twitter",
+      icon: "fab fa-x-twitter",
       color: "bg-black hover:bg-gray-900"
     }
   ]

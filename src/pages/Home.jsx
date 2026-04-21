@@ -7,84 +7,102 @@ import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 import SEOHelmet from '../components/SEOHelmet';
 
+const SERVICES = [
+  {
+    icon: 'fas fa-rocket',
+    title: 'Product development',
+    body: 'New web apps, SaaS products and MVPs — from discovery to launch.',
+  },
+  {
+    icon: 'fas fa-gears',
+    title: 'Business automation',
+    body: 'Internal tools, dashboards and workflows that save real hours.',
+  },
+  {
+    icon: 'fas fa-plug',
+    title: 'APIs & integrations',
+    body: 'REST APIs, third‑party integrations and data pipelines.',
+  },
+  {
+    icon: 'fas fa-arrows-rotate',
+    title: 'Maintenance & support',
+    body: 'Keep existing systems stable, performant and secure.',
+  },
+];
+
+const ServicesStrip = () => (
+  <section className="relative border-b border-line/70 bg-surface/30">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14">
+      <div className="mb-8 flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <span className="eyebrow">What we do</span>
+          <h2 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-ink">
+            Engineering services, end to end.
+          </h2>
+        </div>
+        <p className="max-w-md text-sm text-muted">
+          One team covering design, engineering and delivery — so your project
+          never stalls waiting on hand‑offs.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {SERVICES.map((s) => (
+          <div
+            key={s.title}
+            className="group rounded-xl border border-line bg-surface/60 p-5 hover-lift hover:border-secondary/40"
+          >
+            <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
+              <i className={s.icon} />
+            </div>
+            <h3 className="text-sm font-semibold text-ink">{s.title}</h3>
+            <p className="mt-1.5 text-xs leading-relaxed text-muted">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const Home = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Monitor scroll position to show/hide scroll-to-top button
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Set loaded state for animations
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const scrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <>
-      <SEOHelmet 
+      <SEOHelmet
         title="Imhotep Tech - Custom Software Development & Web Applications | Egypt"
-        description="Leading software development company in Egypt. Custom web applications, Python/Django development, React solutions. 15+ successful projects delivered. Contact us for your business automation needs."
-        keywords="custom software development, web application development, Egypt software company, Django development, React development, Python developer Egypt, business automation, clinic software, financial management app, Imhotep Tech"
+        description="Independent software studio based in Egypt. We design and build dependable web apps, business automation and APIs end-to-end."
+        keywords="custom software development, web application development, Egypt software company, Django, React, Python, business automation, Imhotep Tech"
         canonical="https://imhoteptech.vercel.app/"
       />
-      <div className="w-full font-sans relative overflow-hidden">
-        {/* Minimal background decorative elements */}
-        <div className="fixed inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
-        </div>
 
+      <div className="relative w-full">
         <Navbar currentPage="home" />
-        <Hero />
-        
-        {/* Enhanced Main Content with better animations */}
-        <div className="w-full bg-dark relative">
-          {/* Section separator with enhanced wave */}
-          <div className="relative h-16 w-full -mt-16">
-            <svg className="absolute top-0 w-full h-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="sectionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#1a202c" stopOpacity="0"/>
-                  <stop offset="100%" stopColor="#1a202c" stopOpacity="1"/>
-                </linearGradient>
-              </defs>
-              <path fill="url(#sectionGradient)" d="M0,0L60,5C120,10,240,20,360,25C480,30,600,30,720,25C840,20,960,10,1080,5C1200,0,1320,0,1380,0L1440,0L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
-            </svg>
-          </div>
-
-          <div className="container mx-auto px-4 py-20 max-w-full">
-            <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 ${isLoaded ? 'animate-fade-in' : 'opacity-0'}`}>
-              <AboutSection />
-              <ProjectsSection />
-            </div>
-          </div>
-        </div>
-        
-        <CTASection />
+        <main>
+          <Hero />
+          <ServicesStrip />
+          <AboutSection />
+          <ProjectsSection />
+          <CTASection />
+        </main>
         <Footer />
 
-        {/* Scroll to Top Button */}
         {showScrollTop && (
           <button
+            type="button"
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-secondary to-secondary/80 text-primary rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105 hover:-translate-y-1"
             aria-label="Scroll to top"
+            className="fixed bottom-6 right-6 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full bg-secondary text-primary shadow-soft hover:bg-secondary/90 transition-colors"
           >
-            <i className="fas fa-arrow-up text-lg"></i>
+            <i className="fas fa-arrow-up" />
           </button>
         )}
       </div>

@@ -40,14 +40,14 @@ const baseProjects = [
       date: "Aug 31, 2025",
       description: (
         <>
-          Take control of your finances with <strong>Imhotep Financial Manager v7</strong>! Built with Django & React, it offers:
+          Take control of your finances with <strong>Imhotep Financial Manager v7</strong> — a Django &amp; React application that offers:
         </>
       ),
       features: [
-        "Smart category suggestions 🧠",
-        "Advanced analytics & interactive dashboards 📊",
-        "Automated scheduled transactions 🗓️",
-        "CSV export & performance optimizations 🚀",
+        "Smart category suggestions",
+        "Advanced analytics and interactive dashboards",
+        "Automated scheduled transactions",
+        "CSV export and performance optimizations",
         "Fully responsive, secure, and modern UI"
       ],
       image: "/imhotep_finance.png",
@@ -57,6 +57,7 @@ const baseProjects = [
       tags: [
         { name: "Django", color: "bg-green-900/50" },
         { name: "React", color: "bg-cyan-900/50" },
+        { name: "React Native", color: "bg-cyan-900/50" },
         { name: "Tailwind CSS", color: "bg-pink-900/50" },
         { name: "PostgreSQL", color: "bg-gray-800/50" },
         { name: "Docker", color: "bg-blue-400/50" }
@@ -82,8 +83,8 @@ const baseProjects = [
       date: "August 12, 2025",
       description: (
         <>
-          <span className="font-semibold">The easiest way to host your AI-generated portfolio — no technical skills required.</span><br />
-          Generate your portfolio with ChatGPT, Claude, or any AI assistant, paste the code, and get your live link instantly!
+          <span className="font-semibold">The easiest way to host your AI-generated portfolio — no technical skills required.</span>{' '}
+          Generate your portfolio with ChatGPT, Claude, or any AI assistant, paste the code, and get a live link instantly.
         </>
       ),
       image: "/PharaohfolioLogo.png",
@@ -218,6 +219,7 @@ const baseProjects = [
       priority: "medium",
       tags: [
         { name: "Django", color: "bg-green-900/50" },
+        { name: "React Native", color: "bg-cyan-900/50" },
         { name: "Cross-platform", color: "bg-blue-900/50" },
         { name: "PWA", color: "bg-purple-900/50" },
         { name: "Electron", color: "bg-cyan-900/50" }
@@ -289,7 +291,7 @@ const baseProjects = [
 const libraryProjects = (libraryItems || []).map((lib) => ({
   title: lib.title,
   url: (lib.buttons && lib.buttons[0] && lib.buttons[0].url) || undefined,
-  date: 'Libraries / APIs',
+  date: null,
   description: lib.description,
   image: null,
   imageAlt: lib.title,

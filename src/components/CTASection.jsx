@@ -2,90 +2,111 @@ import React from 'react';
 
 const CTASection = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-primary via-primary/80 to-dark py-24">
-      <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-12 right-0 w-56 h-56 bg-accent/10 rounded-full blur-3xl" />
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/10 text-xs md:text-sm text-gray-200 mb-4">
-          <i className="fas fa-bolt text-secondary mr-2" />
-          Fast turn-around for SMEs and startups
-        </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-white">
-          Ready to ship your next app?
-        </h2>
-        <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-          From internal tools to customer-facing apps, we build clean, reliable software that supports your team and customers.
-        </p>
-        
-        {/* Enhanced CTA buttons - more prominent */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <a 
-            href="mailto:imhoteptech@outlook.com" 
-            className="group relative px-10 py-5 bg-gradient-to-r from-secondary to-secondary/90 text-primary rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 min-w-[220px]"
-          >
-            <i className="fas fa-envelope mr-2" />
-            Get in Touch
-          </a>
-          <a 
-            href="https://github.com/Imhotep-Tech" target="_blank" rel="noopener noreferrer"
-            className="px-10 py-5 bg-transparent border-2 border-white/30 text-white rounded-full font-semibold hover:border-secondary hover:text-secondary hover:bg-secondary/10 transition-all duration-200 min-w-[220px]"
-          >
-            <i className="fab fa-github mr-2" />
-            View Portfolio
-          </a>
-        </div>
-        
-        {/* Trust indicators - more prominent */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400 mb-6">
-          <div className="flex items-center gap-2">
-            <i className="fas fa-check-circle text-secondary" />
-            <span>15+ delivered projects</span>
+    <section className="relative border-b border-line/70 overflow-hidden">
+      <div aria-hidden className="absolute inset-0 bg-dotgrid opacity-30" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-24 right-1/4 h-72 w-72 rounded-full bg-secondary/[0.07] blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7">
+            <span className="eyebrow">Let&apos;s work together</span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-ink">
+              Have a product in mind? We can help you build it.
+            </h2>
+            <p className="mt-4 max-w-xl text-muted leading-relaxed">
+              Whether it&apos;s a new idea, a rebuild of a legacy system, or a
+              focused engagement on a tough problem — tell us about your
+              project and we&apos;ll get back within one business day.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
+              <a
+                href="mailto:imhoteptech@outlook.com"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-primary shadow-soft hover:bg-secondary/90 transition-colors"
+              >
+                <i className="fas fa-envelope text-xs" />
+                imhoteptech@outlook.com
+              </a>
+              <a
+                href="https://github.com/Imhotep-Tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-surface/50 px-6 py-3 text-sm font-semibold text-ink hover:bg-surface transition-colors"
+              >
+                <i className="fab fa-github text-sm" />
+                View our GitHub
+              </a>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <i className="fas fa-shield-alt text-secondary" />
-            <span>Reliable maintenance</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <i className="fas fa-comments text-secondary" />
-            <span>Clear communication</span>
-          </div>
-        </div>
-        
-        {/* Additional contact methods */}
-        <div className="mt-6 pt-6 border-t border-white/10">
-          <p className="text-gray-400 mb-3 text-sm">Prefer a quick message?</p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a 
-              href="mailto:imhoteptech@outlook.com"
-              className="text-secondary hover:text-accent transition-colors duration-200 flex items-center gap-2"
-            >
-              <i className="fas fa-envelope" />
-              <span>imhoteptech@outlook.com</span>
-            </a>
-            <span className="text-gray-600">•</span>
-            <a 
-              href="https://www.linkedin.com/in/karimbassem"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary hover:text-accent transition-colors duration-200 flex items-center gap-2"
-            >
-              <i className="fab fa-linkedin" />
-              <span>LinkedIn</span>
-            </a>
-            <span className="text-gray-600">•</span>
-            <a 
-              href="https://x.com/Imhoteptech1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary hover:text-accent transition-colors duration-200 flex items-center gap-2"
-            >
-              <i className="fab fa-x-twitter" />
-              <span>Twitter</span>
-            </a>
+
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl border border-line bg-surface/60 p-6 md:p-7">
+              <h3 className="text-sm font-semibold text-ink">
+                Other ways to reach us
+              </h3>
+              <ul className="mt-4 space-y-3 text-sm">
+                <li className="flex items-center justify-between gap-3">
+                  <span className="inline-flex items-center gap-3 text-muted">
+                    <i className="fab fa-linkedin text-secondary w-4 text-center" />
+                    LinkedIn
+                  </span>
+                  <a
+                    href="https://www.linkedin.com/in/karimbassem"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink hover:text-secondary transition-colors"
+                  >
+                    /in/karimbassem →
+                  </a>
+                </li>
+                <li className="flex items-center justify-between gap-3">
+                  <span className="inline-flex items-center gap-3 text-muted">
+                    <i className="fab fa-x-twitter text-secondary w-4 text-center" />
+                    Twitter / X
+                  </span>
+                  <a
+                    href="https://x.com/Imhoteptech1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink hover:text-secondary transition-colors"
+                  >
+                    @Imhoteptech1 →
+                  </a>
+                </li>
+                <li className="flex items-center justify-between gap-3">
+                  <span className="inline-flex items-center gap-3 text-muted">
+                    <i className="fab fa-instagram text-secondary w-4 text-center" />
+                    Instagram
+                  </span>
+                  <a
+                    href="https://www.instagram.com/imhotep_tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink hover:text-secondary transition-colors"
+                  >
+                    @imhotep_tech →
+                  </a>
+                </li>
+              </ul>
+
+              <div className="mt-5 border-t border-line pt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-subtle">
+                <span className="inline-flex items-center gap-1.5">
+                  <i className="fas fa-check-circle text-secondary" />
+                  15+ delivered projects
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <i className="fas fa-shield-halved text-secondary" />
+                  Reliable maintenance
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

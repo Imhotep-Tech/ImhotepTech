@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-const ProjectCard = ({ project, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
+const MAX_TAGS = 6;
+
+const ProjectCard = ({ project }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const {
     title,
@@ -10,129 +11,158 @@ const ProjectCard = ({ project, index }) => {
     description,
     image,
     imageAlt,
-    tags,
-    buttons,
-    features
+    tags = [],
+    buttons = [],
+    features,
+    featured,
+    isLibrary,
   } = project;
 
-  const handleCardClick = (e) => {
-    // Check if the clicked element or its parent is a button or link
-    const isButton = e.target.closest('a, button');
-    if (!isButton && url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
-  };
+  const visibleTags = tags.slice(0, MAX_TAGS);
+  const extraTagsCount = Math.max(0, tags.length - MAX_TAGS);
+
+  // Build image fallback initials
+  const initials = (title || '')
+    .replace(/[^A-Za-z0-9 ]/g, '')
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
 
   return (
-    <div 
-      className="group relative bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl border border-gray-700/50 hover:border-secondary/40 transition-all duration-200 w-full cursor-pointer hover-lift"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={handleCardClick}
+    <article
+      className="group relative rounded-2xl border border-line bg-surface/60 overflow-hidden transition-colors duration-200 hover:border-secondary/40"
     >
-
-      {/* Main Content Container */}
-      <div className={`${image ? "flex flex-col md:flex-row" : "p-8"} w-full relative z-10`}>
-        {/* Project Image */}
-        {image && (
-          <div className="w-full md:w-1/3 p-6 md:p-8 flex items-center justify-center relative flex-shrink-0">
-            <div className="relative overflow-hidden rounded-2xl">
-              <img 
-                src={image} 
-                className={`relative w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl shadow-xl transition-transform duration-200 ${
-                  isHovered ? 'scale-105' : 'scale-100'
-                } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                alt={imageAlt} 
+      <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-0">
+        {/* Media */}
+        <div className="relative border-b md:border-b-0 md:border-r border-line bg-surface-2/60 p-6 flex items-center justify-center">
+          {image ? (
+            <>
+              <img
+                src={image}
+                alt={imageAlt || title}
                 loading="lazy"
                 onLoad={() => setImageLoaded(true)}
+                className={`h-28 w-28 md:h-32 md:w-32 rounded-xl object-cover border border-line shadow-soft transition-opacity duration-300 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
               />
               {!imageLoaded && (
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl flex items-center justify-center">
-                  <div className="w-8 h-8 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-6 w-6 rounded-full border-2 border-secondary/30 border-t-secondary animate-spin" />
                 </div>
               )}
+            </>
+          ) : (
+            <div className="flex h-28 w-28 md:h-32 md:w-32 items-center justify-center rounded-xl border border-line bg-surface text-2xl font-bold tracking-tight text-secondary">
+              {initials || 'IT'}
             </div>
-          </div>
-        )}
-        
-        {/* Enhanced Project Details with better animations */}
-        <div className={`${image ? "w-full md:w-2/3 p-6 md:p-8" : "relative z-10"} flex flex-col justify-between min-h-0`}>
-          {/* Header Section */}
-          <div className="mb-6">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white group-hover:text-secondary transition-colors duration-200 flex-1">
-                <span className="hover:underline decoration-secondary decoration-2 underline-offset-4 break-words">
-                  {title}
-                  <i className="fas fa-external-link-alt ml-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"></i>
-                </span>
-              </h3>
-              <div className="flex-shrink-0">
-                <span className="text-xs bg-gradient-to-r from-accent to-secondary text-white px-4 py-2 rounded-full font-semibold shadow-lg whitespace-nowrap">
-                  {date}
-                </span>
-              </div>
-            </div>
-            
-            {/* Description */}
-            <div className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed">
-              {typeof description === 'string' ? (
-                <p className="group-hover:text-gray-200 transition-colors duration-200">{description}</p>
-              ) : (
-                <div className="group-hover:text-gray-200 transition-colors duration-200">{description}</div>
-              )}
-              
-              {features && (
-                <ul className="list-none mt-4 space-y-3">
-                  {features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3 text-sm">
-                      <i className="fas fa-check-circle text-secondary mt-0.5 flex-shrink-0"></i>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-          
-          {/* Enhanced Tags and Buttons Section */}
-          <div className="space-y-6">
-            {tags && (
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag, tagIndex) => (
-                  <span 
-                    key={tagIndex}
-                    className={`text-xs px-3 py-2 rounded-full ${tag.color} border border-white/10 transition-colors duration-200 cursor-default`}
-                    style={{
-                      animationDelay: `${tagIndex * 50}ms`,
-                      animationFillMode: 'both'
-                    }}
-                  >
-                    {tag.name}
-                  </span>
-                ))}
-              </div>
+          )}
+
+          {/* Badges */}
+          <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+            {featured && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-secondary/15 text-secondary border border-secondary/30 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider">
+                <i className="fas fa-star text-[9px]" /> Featured
+              </span>
             )}
-            
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-3" onClick={(e) => e.stopPropagation()}>
-              {buttons.map((button, buttonIndex) => (
-                <a 
-                  key={buttonIndex}
-                  href={button.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={`px-6 py-3 ${button.style} text-white rounded-xl font-semibold text-sm 
-                             shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2 hover-lift`}
-                >
-                  <i className={`${button.icon}`}></i>
-                  <span>{button.text}</span>
-                </a>
-              ))}
-            </div>
+            {isLibrary && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-accent/15 text-accent border border-accent/30 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider">
+                <i className="fas fa-book text-[9px]" /> Library
+              </span>
+            )}
           </div>
         </div>
+
+        {/* Body */}
+        <div className="p-6 md:p-7 flex flex-col">
+          {/* Title row */}
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <h3 className="text-lg md:text-xl font-semibold text-ink leading-snug">
+                {url ? (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-secondary transition-colors"
+                  >
+                    <span className="truncate">{title}</span>
+                    <i className="fas fa-arrow-up-right-from-square text-xs text-subtle group-hover:text-secondary transition-colors" />
+                  </a>
+                ) : (
+                  <span>{title}</span>
+                )}
+              </h3>
+              {date && (
+                <p className="mt-1 text-xs text-subtle inline-flex items-center gap-1.5">
+                  <i className="far fa-calendar" />
+                  {date}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="mt-3 text-sm md:text-[15px] leading-relaxed text-muted">
+            {typeof description === 'string' ? <p>{description}</p> : description}
+          </div>
+
+          {/* Features */}
+          {features && features.length > 0 && (
+            <ul className="mt-4 space-y-1.5">
+              {features.map((feature, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-muted">
+                  <i className="fas fa-check text-secondary mt-1 text-[10px]" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Tags */}
+          {visibleTags.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-1.5">
+              {visibleTags.map((tag, i) => (
+                <span key={i} className="chip">
+                  {tag.name}
+                </span>
+              ))}
+              {extraTagsCount > 0 && (
+                <span className="chip !text-subtle">+{extraTagsCount} more</span>
+              )}
+            </div>
+          )}
+
+          {/* Buttons */}
+          {buttons.length > 0 && (
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {buttons.map((button, i) => {
+                const primary = i === 0;
+                return (
+                  <a
+                    key={i}
+                    href={button.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                      primary
+                        ? 'bg-ink text-primary hover:bg-white'
+                        : 'border border-line bg-surface/70 text-ink hover:border-line/0 hover:bg-surface'
+                    }`}
+                  >
+                    <i className={`${button.icon} text-xs`} />
+                    <span>{button.text}</span>
+                  </a>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </article>
   );
 };
 

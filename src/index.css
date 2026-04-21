@@ -2,21 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset and base styles */
+/* ---------- Base ---------- */
+:root {
+  color-scheme: dark;
+  --focus-ring: 0 0 0 3px rgba(255, 221, 87, 0.35);
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  min-height: 100vh;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  line-height: 1.55;
   font-weight: 400;
+  background-color: #0b1220;
+  color: #e6edf7;
   overflow-x: hidden;
 }
 
@@ -25,63 +35,69 @@ html, body {
   min-height: 100vh;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-:root {
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
+
+/* ---------- Selection & scrollbar ---------- */
+::selection {
+  background: rgba(255, 221, 87, 0.25);
+  color: #ffffff;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
-
-button {
+::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2a3d;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.15s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+::-webkit-scrollbar-thumb:hover {
+  background: #2b3850;
 }
 
-/* Professional, minimal animations */
+/* ---------- Smooth scroll ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Accessible focus ---------- */
+*:focus {
+  outline: none;
+}
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: 8px;
+}
+
+/* ---------- Animations ---------- */
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -92,41 +108,67 @@ button:focus-visible {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.3s ease-out forwards;
+  animation: fade-in-up 0.45s ease-out forwards;
 }
-
 .animate-fade-in {
-  animation: fade-in 0.3s ease-out forwards;
+  animation: fade-in 0.45s ease-out forwards;
 }
-
-/* Staggered animation delays - minimal */
 .animate-stagger-1 { animation-delay: 0.05s; }
-.animate-stagger-2 { animation-delay: 0.1s; }
+.animate-stagger-2 { animation-delay: 0.10s; }
 .animate-stagger-3 { animation-delay: 0.15s; }
+.animate-stagger-4 { animation-delay: 0.20s; }
 
-/* Professional hover effects - subtle and fast */
-.hover-lift {
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
+/* ---------- Utilities ---------- */
+.hover-lift {
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(255, 221, 87, 0.3);
+/* Soft card base */
+.card {
+  background: linear-gradient(180deg, rgba(22, 33, 52, 0.8) 0%, rgba(17, 26, 43, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+
+/* Section eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffdd57;
+}
+
+/* Subtle dotted grid backdrop */
+.bg-dotgrid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
 }

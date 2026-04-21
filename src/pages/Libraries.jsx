@@ -6,200 +6,141 @@ import { libraries, integrationSteps } from '../data/libraries';
 
 const Libraries = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
-    
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const scrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <div className="w-full font-sans">
       <Navbar currentPage="libraries" />
-      
-      {/* Enhanced Hero Section */}
-      <div className="relative w-full bg-gradient-to-br from-primary via-primary/70 to-dark overflow-hidden">
-        {/* Enhanced animated background elements */}
-        <div className="absolute inset-0 w-full overflow-hidden">
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute top-20 right-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-10 left-1/3 w-56 h-56 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-          
-          {/* Reduced motion: remove particle pings for calmer UX */}
-          
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="w-full h-full" style={{
-              backgroundImage: `
-                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '50px 50px'
-            }}></div>
-          </div>
-        </div>
-        
-        <div className="container mx-auto px-4 py-24 md:py-32 relative z-10 w-full">
-          <div className={`text-center max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <div className="relative mb-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Open Source Libraries & APIs
-              </h1>
-              <div className="absolute -top-2 -right-2 text-2xl animate-bounce-gentle">
-                <i className="fas fa-code text-accent opacity-60"></i>
-              </div>
-              <div className="absolute -bottom-1 -left-1 text-lg animate-float" style={{animationDelay: '1s'}}>
-                <i className="fas fa-star text-secondary opacity-40"></i>
-              </div>
-            </div>
-            
-            <p className="text-lg md:text-xl mb-10 text-gray-200 animate-fade-in-up animate-stagger-1">
-              Free to use, built with ❤️ by Imhotep Tech
+
+      {/* Page header */}
+      <section className="relative border-b border-line/70 overflow-hidden">
+        <div aria-hidden className="absolute inset-0 bg-dotgrid opacity-40" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[720px] rounded-full bg-secondary/[0.06] blur-3xl"
+        />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-24">
+          <div className="max-w-3xl animate-fade-in-up">
+            <span className="eyebrow">Open source</span>
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tightest text-ink">
+              Libraries &amp; APIs, free for everyone.
+            </h1>
+            <p className="mt-5 max-w-2xl text-muted leading-relaxed">
+              Tools we have extracted from our own projects and released as
+              open‑source packages. Production‑tested, well‑documented and
+              maintained.
             </p>
-            
-            <a 
-              href="https://github.com/Imhotep-Tech" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-full font-bold text-lg 
-                         shadow-lg hover:shadow-accent/50 transform hover:-translate-y-1 transition-all duration-300 animate-fade-in-up animate-stagger-2"
-            >
-              <i className="fab fa-github text-xl"></i>
-              Explore on GitHub
-            </a>
-          </div>
-        </div>
-        
-        {/* Enhanced wave separator with gradient */}
-        <div className="relative h-32 w-full">
-          <svg className="absolute bottom-0 w-full h-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="librariesWaveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#1a202c" stopOpacity="0.8"/>
-                <stop offset="50%" stopColor="#1a202c" stopOpacity="1"/>
-                <stop offset="100%" stopColor="#1a202c" stopOpacity="1"/>
-              </linearGradient>
-            </defs>
-            <path fill="url(#librariesWaveGradient)" d="M0,160L60,149.3C120,139,240,117,360,128C480,139,600,181,720,181.3C840,181,960,139,1080,122.7C1200,107,1320,117,1380,122.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-          </svg>
-          
-          {/* Floating elements in wave area */}
-          <div className="absolute bottom-8 left-1/4 w-3 h-3 bg-secondary/20 rounded-full animate-float"></div>
-          <div className="absolute bottom-12 right-1/3 w-2 h-2 bg-accent/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="w-full bg-dark">
-        <div className="container mx-auto px-4 py-16 max-w-full">
-          {/* Libraries Grid */}
-          <div className="mb-16">
-            <div className={`text-center mb-12 ${isVisible ? 'animate-fade-in-up animate-stagger-3' : 'opacity-0'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Our Libraries & APIs</h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                Powerful tools to accelerate your development process
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {libraries.map((library, index) => (
-                <div
-                  key={index}
-                  className="animate-zoom-in"
-                  style={{ 
-                    animationDelay: `${(index + 4) * 100}ms`,
-                    animationFillMode: 'both'
-                  }}
-                >
-                  <LibraryCard library={library} />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Integration Steps Section */}
-          <div className={`animate-fade-in-up animate-stagger-6`}>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">How to Integrate</h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                Get started with our libraries in just three simple steps
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {integrationSteps.map((step, index) => (
-                <div 
-                  key={index}
-                  className="group bg-gradient-to-br from-primary/40 via-primary/30 to-primary/20 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-gray-700/50 hover:border-secondary/30 transition-all duration-500 hover-lift animate-zoom-in"
-                  style={{ animationDelay: `${(index + 7) * 100}ms`, animationFillMode: 'both' }}
-                >
-                  <div className="relative mb-6">
-                    <div className="bg-secondary/20 h-16 w-16 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-secondary font-bold text-2xl">{step.step}</span>
-                    </div>
-                    <div className="absolute top-0 right-0">
-                      <i className={`${step.icon} text-2xl text-accent/60 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300`}></i>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-secondary transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-            
-            <div className="text-center">
-              <a 
-                href="mailto:imhoteptech@outlook.com" 
-                className="px-8 py-4 bg-secondary text-primary hover:bg-secondary/90 rounded-full font-bold text-lg 
-                           shadow-lg hover:shadow-secondary/30 transform hover:-translate-y-1 transition-all duration-300"
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
+              <a
+                href="https://github.com/Imhotep-Tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-primary shadow-soft hover:bg-white transition-colors"
               >
-                Need Help? Contact Us
+                <i className="fab fa-github" />
+                Explore on GitHub
+              </a>
+              <a
+                href="mailto:imhoteptech@outlook.com"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-line bg-surface/50 px-6 py-3 text-sm font-semibold text-ink hover:bg-surface transition-colors"
+              >
+                <i className="fas fa-envelope text-xs" />
+                Need help?
               </a>
             </div>
           </div>
         </div>
-      </div>
-      
+      </section>
+
+      {/* Libraries grid */}
+      <section className="border-b border-line/70">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
+          <div className="mb-10 flex items-end justify-between flex-wrap gap-4">
+            <div>
+              <span className="eyebrow">Packages</span>
+              <h2 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-ink">
+                Our published libraries
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-muted">
+              Powerful tools to accelerate your development workflow.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {libraries.map((library, index) => (
+              <LibraryCard key={index} library={library} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integration steps */}
+      <section className="border-b border-line/70 bg-surface/30">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
+          <div className="mb-12 text-center">
+            <span className="eyebrow">Get started</span>
+            <h2 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-ink">
+              How to integrate in three steps
+            </h2>
+            <p className="mt-3 max-w-xl mx-auto text-sm text-muted">
+              Clear docs, minimal setup. Drop a package into your project and
+              you&apos;re ready to ship.
+            </p>
+          </div>
+
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {integrationSteps.map((step) => (
+              <li
+                key={step.step}
+                className="relative rounded-2xl border border-line bg-surface/60 p-6 hover-lift hover:border-secondary/40"
+              >
+                <div className="flex items-start justify-between">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary/10 text-secondary font-semibold">
+                    {step.step}
+                  </span>
+                  <i className={`${step.icon} text-subtle text-lg`} />
+                </div>
+                <h3 className="mt-5 text-base font-semibold text-ink">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted leading-relaxed">
+                  {step.description}
+                </p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-12 text-center">
+            <a
+              href="mailto:imhoteptech@outlook.com"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-primary shadow-soft hover:bg-secondary/90 transition-colors"
+            >
+              <i className="fas fa-envelope text-xs" />
+              Need help integrating? Contact us
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
 
-      {/* Enhanced Scroll to Top Button */}
       {showScrollTop && (
         <button
+          type="button"
           onClick={scrollToTop}
-          className="group fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-secondary to-secondary/80 text-primary rounded-full shadow-2xl hover:shadow-glow-lg transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 animate-bounce-gentle overflow-hidden"
           aria-label="Scroll to top"
+          className="fixed bottom-6 right-6 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full bg-secondary text-primary shadow-soft hover:bg-secondary/90 transition-colors"
         >
-          {/* Button shine effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-          
-          {/* Button content */}
-          <i className="fas fa-arrow-up text-lg relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
-          
-          {/* Glowing ring effect */}
-          <div className="absolute inset-0 rounded-full border-2 border-secondary/30 group-hover:border-secondary/60 transition-all duration-300 animate-pulse"></div>
-          
-          {/* Tooltip */}
-          <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-            Back to top
-          </div>
+          <i className="fas fa-arrow-up" />
         </button>
       )}
     </div>
