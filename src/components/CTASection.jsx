@@ -1,8 +1,11 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const CTASection = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <section className="relative border-b border-line/70 overflow-hidden">
+    <section ref={revealRef} className="relative border-b border-line/70 overflow-hidden">
       <div aria-hidden className="absolute inset-0 bg-dotgrid opacity-30" />
       <div
         aria-hidden
@@ -12,17 +15,27 @@ const CTASection = () => {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <span className="eyebrow">Let&apos;s work together</span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-ink">
-              Have a product in mind? We can help you build it.
+            <span data-reveal="fade" className="eyebrow">Let&apos;s work together</span>
+            <h2
+              data-reveal="up"
+              data-reveal-delay="1"
+              className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-ink"
+            >
+              Got an idea? Let&apos;s build it.
             </h2>
-            <p className="mt-4 max-w-xl text-muted leading-relaxed">
-              Whether it&apos;s a new idea, a rebuild of a legacy system, or a
-              focused engagement on a tough problem — tell us about your
-              project and we&apos;ll get back within one business day.
+            <p
+              data-reveal="up"
+              data-reveal-delay="2"
+              className="mt-4 max-w-xl text-muted leading-relaxed"
+            >
+              Tell us about your project — we&apos;ll get back within one business day.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
+            <div
+              data-reveal="up"
+              data-reveal-delay="3"
+              className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3"
+            >
               <a
                 href="mailto:imhoteptech@outlook.com"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-primary shadow-soft hover:bg-secondary/90 transition-colors"
@@ -42,7 +55,7 @@ const CTASection = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div data-reveal="up" data-reveal-delay="2" className="lg:col-span-5">
             <div className="rounded-2xl border border-line bg-surface/60 p-6 md:p-7">
               <h3 className="text-sm font-semibold text-ink">
                 Other ways to reach us

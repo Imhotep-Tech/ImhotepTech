@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import ProjectCard from './ProjectCard';
 import projects from '../data/projects';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const normalizeToCategory = (name) => {
   const s = name.toLowerCase();
@@ -29,6 +30,7 @@ const FILTERS = [
 
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const revealRef = useScrollReveal();
 
   const librariesCount = useMemo(
     () => projects.filter((p) => p.isLibrary).length,
@@ -61,22 +63,26 @@ const ProjectsSection = () => {
   }, [activeFilter]);
 
   return (
-    <section id="work" className="relative border-b border-line/70">
+    <section id="work" ref={revealRef} className="relative border-b border-line/70">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-24">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div className="max-w-2xl">
-            <span className="eyebrow">Selected work</span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-ink">
-              Projects shipped to real users.
+            <span data-reveal="fade" className="eyebrow">Selected work</span>
+            <h2
+              data-reveal="up"
+              data-reveal-delay="1"
+              className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-ink"
+            >
+              What we've shipped.
             </h2>
-            <p className="mt-3 text-muted leading-relaxed">
-              A curated selection of products, internal tools and open‑source
-              libraries we have designed and built end‑to‑end.
-            </p>
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-muted">
+          <div
+            data-reveal="fade"
+            data-reveal-delay="2"
+            className="flex items-center gap-2 text-sm text-muted"
+          >
             <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/60 px-3 py-1.5">
               <i className="fas fa-folder-open text-secondary text-xs" />
               <span className="font-medium text-ink">{filteredProjects.length}</span>
@@ -92,7 +98,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Filters */}
-        <div className="mb-10 -mx-4 sm:mx-0 overflow-x-auto">
+        <div data-reveal="up" data-reveal-delay="2" className="mb-10 -mx-4 sm:mx-0 overflow-x-auto">
           <div className="flex gap-2 px-4 sm:px-0 min-w-max sm:flex-wrap">
             {FILTERS.map((f) => {
               const active = activeFilter === f.key;
@@ -130,11 +136,16 @@ const ProjectsSection = () => {
         {filteredProjects.length > 0 ? (
           <div className="grid grid-cols-1 gap-6">
             {filteredProjects.map((project, index) => (
-              <ProjectCard
+              <div
                 key={`${project.title}-${activeFilter}`}
-                project={project}
-                index={index}
-              />
+                data-reveal="up"
+                data-reveal-delay={Math.min(index + 1, 6)}
+              >
+                <ProjectCard
+                  project={project}
+                  index={index}
+                />
+              </div>
             ))}
           </div>
         ) : (

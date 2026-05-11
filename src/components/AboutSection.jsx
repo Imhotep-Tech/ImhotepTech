@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const TECH_STACK = [
   { name: 'Python', icon: 'fab fa-python' },
@@ -19,44 +20,63 @@ const HIGHLIGHTS = [
     icon: 'fas fa-qrcode',
     tag: 'Loyalty Platform',
     title: '7CS Loyalty App',
-    body: 'QR‑based point redemption and invoice sync for a multi‑branch car‑services company in Egypt.',
+    body: 'QR point redemption for a multi‑branch car‑services company.',
     href: 'https://7csloyal.vercel.app/',
   },
   {
     icon: 'fas fa-chart-line',
     tag: 'Personal Finance',
     title: 'Imhotep Finance',
-    body: 'Smart categorization, scheduled transactions and interactive dashboards to take control of money.',
+    body: 'Smart budgeting with dashboards and scheduled transactions.',
     href: 'https://imhotep-finance.vercel.app/',
   },
   {
     icon: 'fas fa-stethoscope',
     tag: 'Clinic Management',
     title: 'Imhotep Smart Clinic',
-    body: 'Appointments, patient records and prescriptions with role‑based access for medical teams.',
+    body: 'Appointments, records, and prescriptions — role‑based access.',
     href: 'https://imhotepsmartclinic.pythonanywhere.com/',
   },
 ];
 
 const AboutSection = () => {
+  const revealRef = useScrollReveal();
+
+  const handleMouseMove = useCallback((e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  }, []);
+
   return (
-    <section id="about" className="relative border-b border-line/70">
+    <section id="about" ref={revealRef} className="relative border-b border-line/70">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left — narrative */}
           <div className="lg:col-span-5">
-            <span className="eyebrow">About the studio</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-ink">
-              A small team focused on shipping software that works.
+            <span data-reveal="fade" className="eyebrow">About the studio</span>
+            <h2
+              data-reveal="up"
+              data-reveal-delay="1"
+              className="mt-4 text-3xl md:text-4xl font-bold tracking-tight text-ink"
+            >
+              Small team. Real software.
             </h2>
-            <p className="mt-5 text-muted leading-relaxed">
-              Imhotep Tech is an independent software studio based in Egypt. We
-              partner with founders and teams to turn ideas into production
-              systems — web apps, dashboards, internal tools and APIs that your
-              users actually enjoy using.
+            <p
+              data-reveal="up"
+              data-reveal-delay="2"
+              className="mt-5 text-muted leading-relaxed"
+            >
+              We partner with founders and teams to turn ideas into
+              production systems people actually use.
             </p>
 
-            <div className="mt-8 flex items-center gap-4">
+            <div
+              data-reveal="up"
+              data-reveal-delay="3"
+              className="mt-8 flex items-center gap-4"
+            >
               <img
                 src="/it.png"
                 alt="Imhotep Tech"
@@ -73,7 +93,10 @@ const AboutSection = () => {
           {/* Right — highlights + stack */}
           <div className="lg:col-span-7 space-y-8">
             <div>
-              <div className="mb-4 flex items-end justify-between gap-3">
+              <div
+                data-reveal="fade"
+                className="mb-4 flex items-end justify-between gap-3"
+              >
                 <h3 className="text-sm font-semibold text-ink flex items-center gap-2">
                   <i className="fas fa-bookmark text-secondary" />
                   Featured products
@@ -86,13 +109,16 @@ const AboutSection = () => {
                 </a>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {HIGHLIGHTS.map((h) => (
+                {HIGHLIGHTS.map((h, i) => (
                   <a
                     key={h.title}
                     href={h.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex flex-col rounded-xl border border-line bg-surface/60 p-5 hover-lift hover:border-secondary/40"
+                    data-reveal="up"
+                    data-reveal-delay={i + 1}
+                    onMouseMove={handleMouseMove}
+                    className="group flex flex-col rounded-xl border border-line bg-surface/60 p-5 hover-lift hover-glow hover:border-secondary/40"
                   >
                     <div className="flex items-center justify-between">
                       <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
@@ -114,13 +140,16 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-line bg-surface/40 p-6">
+            <div
+              data-reveal="up"
+              data-reveal-delay="4"
+              className="rounded-2xl border border-line bg-surface/40 p-6"
+            >
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-ink flex items-center gap-2">
                   <i className="fas fa-code text-secondary" />
-                  Core technology stack
+                  Tech stack
                 </h3>
-                <span className="text-xs text-subtle">Battle‑tested in production</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {TECH_STACK.map((t) => (
