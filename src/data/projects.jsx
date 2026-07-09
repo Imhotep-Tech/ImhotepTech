@@ -37,21 +37,21 @@ const baseProjects = [
     {
       title: "Imhotep Financial Manager",
       url: "https://imhotep-finance.vercel.app/",
-      date: "Aug 31, 2025",
+      date: "June 14, 2026",
       description: (
         <>
-          Take control of your finances with <strong>Imhotep Financial Manager v7</strong> — a Django &amp; React application that offers:
+          Take control of your finances with <strong>Imhotep Financial Manager v8.2</strong> — a powerful Django, React, and React Native application that offers:
         </>
       ),
       features: [
-        "Smart category suggestions",
-        "Advanced analytics and interactive dashboards",
-        "Automated scheduled transactions",
-        "CSV export and performance optimizations",
-        "Fully responsive, secure, and modern UI"
+        "Native Android Mobile App (available on Google Play) & Native-like iOS Web UI",
+        "Smarter Google Logins with automatic app redirection",
+        "Advanced analytics, transaction filtering by Place, and interactive dashboards",
+        "Move Money, Currency Conversion, and automated scheduled transactions",
+        "Simplified self-hosting documentation and robust API"
       ],
       image: "/imhotep_finance.png",
-      imageAlt: "Imhotep Financial Manager v7 App",
+      imageAlt: "Imhotep Financial Manager v8.2 App",
       priority: "high",
       featured: true,
       tags: [
@@ -64,13 +64,13 @@ const baseProjects = [
       ],
       buttons: [
         {
-          text: "Try Live",
+          text: "Try Web Live",
           url: "https://imhotep-finance.vercel.app/",
           style: "bg-accent hover:bg-accent/80",
           icon: "fas fa-external-link-alt"
         },
         {
-          text: "Play Store",
+          text: "Get on Google Play",
           url: "https://play.google.com/store/apps/details?id=com.imhoteptech.imhotep_finance",
           style: "bg-green-600 hover:bg-green-700",
           icon: "fab fa-google-play"
