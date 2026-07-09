@@ -4,8 +4,28 @@
 
 /* ---------- Base ---------- */
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
+  --bg-color: #ffffff;
+  --text-color: #0f172a;
+  --focus-ring: 0 0 0 3px rgba(59, 130, 246, 0.35);
+  --border-color: rgba(0, 0, 0, 0.08);
+}
+
+:root.dark {
+  --bg-color: #030712;
+  --text-color: #f3f4f6;
   --focus-ring: 0 0 0 3px rgba(255, 221, 87, 0.35);
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Fallback/default if JS hasn't loaded or system pref matches */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg-color: #030712;
+    --text-color: #f3f4f6;
+    --focus-ring: 0 0 0 3px rgba(255, 221, 87, 0.35);
+    --border-color: rgba(255, 255, 255, 0.08);
+  }
 }
 
 * {
@@ -25,9 +45,10 @@ body {
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   line-height: 1.55;
   font-weight: 400;
-  background-color: #0b1220;
-  color: #e6edf7;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 #root {
@@ -61,14 +82,14 @@ a {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b1220;
+  background: var(--bg-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f2a3d;
+  background: var(--border-color);
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2b3850;
+  background: rgba(120, 120, 120, 0.4);
 }
 
 /* ---------- Smooth scroll ---------- */

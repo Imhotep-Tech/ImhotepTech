@@ -70,6 +70,12 @@ const baseProjects = [
           icon: "fas fa-external-link-alt"
         },
         {
+          text: "Play Store",
+          url: "https://play.google.com/store/apps/details?id=com.imhoteptech.imhotep_finance",
+          style: "bg-green-600 hover:bg-green-700",
+          icon: "fab fa-google-play"
+        },
+        {
           text: "View on GitHub",
           url: "https://github.com/Imhotep-Tech/imhotep_finance",
           style: "bg-gray-800 hover:bg-gray-700",
