@@ -2,6 +2,45 @@ import { libraries as libraryItems } from './libraries';
 
 const baseProjects = [
     {
+      title: "Dastet Al3ab — Offline Party Games Bundle",
+      url: "https://dastet-al3ab.vercel.app/",
+      date: "July 12, 2026",
+      description: "Offline-first PWA party game platform for Sahel hangouts and road trips, featuring card games, trivia, forbidden words, and social challenges.",
+      features: [
+        "Offline-first PWA with service-worker caching for play without internet.",
+        "Git-backed serverless design where games/decks are defined as raw JSON.",
+        "DRY state architecture allowing custom game engines to be built in minutes.",
+        "Sleek dark-mode aesthetic designed for high readability under low light.",
+        "Full Arabic & English localization with dynamic RTL/LTR switching."
+      ],
+      image: "/dasta.png",
+      imageAlt: "Dastet Al3ab App Logo",
+      priority: "high",
+      featured: true,
+      tags: [
+        { name: "Next.js", color: "bg-gray-800/50" },
+        { name: "React", color: "bg-cyan-900/50" },
+        { name: "Tailwind CSS", color: "bg-pink-900/50" },
+        { name: "PWA", color: "bg-indigo-900/50" },
+        { name: "TypeScript", color: "bg-blue-900/50" },
+        { name: "Offline-First", color: "bg-green-900/50" }
+      ],
+      buttons: [
+        {
+          text: "Play Live",
+          url: "https://dastet-al3ab.vercel.app/",
+          style: "bg-accent hover:bg-accent/80",
+          icon: "fas fa-external-link-alt"
+        },
+        {
+          text: "View on GitHub",
+          url: "https://github.com/Imhotep-Tech/dastet-al3ab",
+          style: "bg-gray-800 hover:bg-gray-700",
+          icon: "fab fa-github"
+        }
+      ]
+    },
+    {
       title: "Loyalty Program — Full-Stack Web Application",
       url: "https://7csloyal.vercel.app/",
       date: "Feb 23, 2026",
@@ -297,7 +336,7 @@ const baseProjects = [
 const libraryProjects = (libraryItems || []).map((lib) => ({
   title: lib.title,
   url: (lib.buttons && lib.buttons[0] && lib.buttons[0].url) || undefined,
-  date: null,
+  date: lib.date || null,
   description: lib.description,
   image: null,
   imageAlt: lib.title,

@@ -1,6 +1,35 @@
 const libraries = [
   {
+    title: "dj-scaffold",
+    date: "July 11, 2026",
+    description: "Interactive CLI companion for rapidly bootstrapping Dockerized Django applications with Service Layer architecture, JWT authentication, and secure defaults.",
+    icon: "fas fa-terminal",
+    category: "Python CLI",
+    installCommand: "pip install dj-scaffold-imhotep",
+    tags: [
+      { name: "Django", color: "bg-green-900/50" },
+      { name: "Docker", color: "bg-blue-400/50" },
+      { name: "Python", color: "bg-blue-900/50" },
+      { name: "CLI Tool", color: "bg-yellow-900/50" }
+    ],
+    buttons: [
+      {
+        text: "View on GitHub",
+        url: "https://github.com/Imhotep-Tech/dj-scaffold",
+        style: "bg-gray-800 hover:bg-gray-700",
+        icon: "fab fa-github"
+      },
+      {
+        text: "PyPI Package",
+        url: "https://pypi.org/project/dj-scaffold-imhotep/",
+        style: "bg-accent hover:bg-accent/80",
+        icon: "fab fa-python"
+      }
+    ]
+  },
+  {
     title: "Imhotep Files Flask",
+    date: "Oct 2, 2024",
     description: "This Python library simplifies file upload and deletion operations in web applications using Flask or similar frameworks. Perfect for developers looking to handle file operations efficiently.",
     icon: "fas fa-file-upload",
     category: "Python Library",
@@ -28,6 +57,7 @@ const libraries = [
   },
   {
     title: "Imhotep Mail",
+    date: "Oct 5, 2024",
     description: "This is a simple Python library for sending emails. It provides an easy way to configure and send emails from any Python code. Streamline your email sending process with minimal configuration.",
     icon: "fas fa-envelope",
     category: "Python Library",
@@ -55,6 +85,7 @@ const libraries = [
   },
   {
     title: "Imhotep Exchange Rates API",
+    date: "Oct 22, 2024",
     description: "This API is simply a currency conversion API with unlimited requests, free to use, and updates every 24 hours. Perfect for applications requiring currency conversion functionality.",
     icon: "fas fa-money-bill-wave",
     category: "REST API",

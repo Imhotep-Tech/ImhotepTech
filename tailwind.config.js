@@ -41,6 +41,8 @@ export default {
       animation: {
         'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
         'fade-in': 'fadeIn 0.4s ease-out forwards',
+        'ticker': 'ticker 40s linear infinite',
+        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -50,12 +52,23 @@ export default {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' }
+        },
+        ticker: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.05)' }
         }
       },
       boxShadow: {
         soft: '0 1px 2px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.1)',
         card: '0 6px 20px -10px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.25)',
         ring: '0 0 0 1px rgba(255,255,255,0.06) inset',
+        glow: '0 0 20px rgba(16, 185, 129, 0.15)',
+        'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.15)',
+        'glow-gold': '0 0 20px rgba(251, 191, 36, 0.15)'
       },
       backgroundImage: {
         'grid-lines':
