@@ -39,8 +39,8 @@ const socialPlatforms = [
 
 const socialStats = [
   {
-    metric: "Open Source Projects",
-    value: "15+",
+    metric: "Projects & Libraries",
+    value: "14+",
     icon: "fas fa-code-branch",
     color: "text-green-400"
   },

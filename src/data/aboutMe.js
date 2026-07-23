@@ -34,11 +34,17 @@ const founderInfo = {
 };
 
 const technicalSkills = [
-  { name: "Flask", level: 95, color: "from-green-500 to-green-400", icon: "fas fa-flask" },
+  { name: "Flask", level: 80, color: "from-green-500 to-green-400", icon: "fas fa-flask" },
   { name: "Python", level: 85, color: "from-blue-500 to-blue-400", icon: "fab fa-python" },
   { name: "HTML/CSS", level: 75, color: "from-yellow-500 to-yellow-400", icon: "fab fa-html5" },
   { name: "Django", level: 75, color: "from-gray-500 to-gray-400", icon: "fas fa-leaf" },
-  { name: "React", level: 70, color: "from-cyan-500 to-blue-400", icon: "fab fa-react" }
+  { name: "React", level: 70, color: "from-cyan-500 to-blue-400", icon: "fab fa-react" },
+  { name: "React Native", level: 70, color: "from-cyan-500 to-blue-400", icon: "fas fa-mobile-screen-button" },
+  { name: "JavaScript", level: 70, color: "from-yellow-500 to-yellow-400", icon: "fab fa-js-square" },
+  { name: "Tailwind CSS", level: 65, color: "from-pink-500 to-pink-400", icon: "fas fa-wind" },
+  { name: "PostgreSQL", level: 60, color: "from-blue-500 to-blue-400", icon: "fas fa-database" },
+  { name: "Docker", level: 55, color: "from-blue-500 to-blue-400", icon: "fab fa-docker" },
+  { name: "PWA", level: 50, color: "from-purple-500 to-purple-400", icon: "fas fa-mobile-screen" }
 ];
 
 const additionalTechnologies = [
