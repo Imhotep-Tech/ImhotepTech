@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { to: '/libraries', label: 'Libraries & APIs', key: 'libraries' },
   { to: '/social-media', label: 'Social', key: 'social-media' },
   {
-    href: 'https://kbassem.vercel.app/',
+    href: 'https://kbassem.imhotep-tech.com/',
     label: 'Founder',
     key: 'about-me',
     external: true,

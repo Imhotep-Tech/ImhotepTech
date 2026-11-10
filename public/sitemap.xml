@@ -8,43 +8,25 @@
     
     <!-- Homepage - Highest Priority -->
     <url>
-        <loc>https://imhoteptech.vercel.app/</loc>
-        <lastmod>2025-01-08</lastmod>
+        <loc>https://www.imhotep-tech.com/</loc>
+        <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <mobile:mobile/>
     </url>
     
-    <!-- Libraries Page - High Priority -->
+    <!-- Community Hub - High Priority -->
     <url>
-        <loc>https://imhoteptech.vercel.app/libraries</loc>
-        <lastmod>2025-01-08</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-        <mobile:mobile/>
-    </url>
-    
-    <!-- About Me Page - High Priority -->
-    <url>
-        <loc>https://imhoteptech.vercel.app/about-me</loc>
-        <lastmod>2025-01-08</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-        <mobile:mobile/>
-    </url>
-    
-    <!-- Social Media Page - Medium Priority -->
-    <url>
-        <loc>https://imhoteptech.vercel.app/social-media</loc>
-        <lastmod>2025-01-08</lastmod>
+        <loc>https://www.imhotep-tech.com/community</loc>
+        <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
         <mobile:mobile/>
     </url>
     
     <!-- Project URLs - Important for SEO -->
     <url>
-        <loc>https://imhotep-finance.vercel.app/</loc>
+        <loc>https://finance.imhotep-tech.com/</loc>
         <lastmod>2025-01-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>

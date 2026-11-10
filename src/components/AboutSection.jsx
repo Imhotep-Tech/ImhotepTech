@@ -21,14 +21,14 @@ const HIGHLIGHTS = [
     tag: 'Loyalty Platform',
     title: '7CS Loyalty App',
     body: 'QR point redemption for a multi‑branch car‑services company.',
-    href: 'https://7csloyal.vercel.app/',
+    href: 'https://loyalty.7-cylinders.com/',
   },
   {
     icon: 'fas fa-chart-line',
     tag: 'Personal Finance',
     title: 'Imhotep Finance',
     body: 'Smart budgeting with dashboards and scheduled transactions.',
-    href: 'https://imhotep-finance.vercel.app/',
+    href: 'https://finance.imhotep-tech.com/',
   },
   {
     icon: 'fas fa-stethoscope',

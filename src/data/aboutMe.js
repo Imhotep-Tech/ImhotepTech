@@ -95,7 +95,7 @@ const additionalTechnologies = techStackCategories.find(c => c.id === 'devops')?
 const notableProjects = [
   {
     title: "Imhotep Financial Manager v7",
-    url: "https://imhotep-finance.vercel.app/",
+    url: "https://finance.imhotep-tech.com/",
     date: "August 31, 2025",
     description: "Take control of your finances with Imhotep Financial Manager v7! Built with Django & React, it offers:",
     features: [

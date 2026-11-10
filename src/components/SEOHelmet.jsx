@@ -39,7 +39,7 @@ const SEOHelmet = ({
 
     const ogImageMeta = document.querySelector('meta[property="og:image"]');
     if (ogImageMeta && ogImage) {
-      ogImageMeta.setAttribute('content', `https://imhoteptech.vercel.app${ogImage}`);
+      ogImageMeta.setAttribute('content', `https://www.imhotep-tech.com${ogImage}`);
     }
 
     // Update Twitter tags for consistency
@@ -55,7 +55,7 @@ const SEOHelmet = ({
 
     const twitterImage = document.querySelector('meta[name="twitter:image"]');
     if (twitterImage && ogImage) {
-      twitterImage.setAttribute('content', `https://imhoteptech.vercel.app${ogImage}`);
+      twitterImage.setAttribute('content', `https://www.imhotep-tech.com${ogImage}`);
     }
 
     // Update canonical URL

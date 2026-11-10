@@ -60,8 +60,8 @@ const FounderSection = () => {
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Icon name="fas fa-globe text-primary" />
-                      <a href="https://kbassem.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline font-mono">
-                        kbassem.app
+                      <a href="https://kbassem.imhotep-tech.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline font-mono">
+                        kbassem.imhotep-tech.com
                       </a>
                     </span>
                   </div>
@@ -91,7 +91,7 @@ const FounderSection = () => {
                 </a>
               ))}
               <a
-                href="https://kbassem.vercel.app/"
+                href="https://kbassem.imhotep-tech.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2.5 rounded-xl border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"

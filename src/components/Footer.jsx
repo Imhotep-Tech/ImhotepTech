@@ -86,7 +86,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://kbassem.vercel.app/"
+                  href="https://kbassem.imhotep-tech.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted hover:text-ink transition-colors"
